@@ -1,17 +1,11 @@
 # ckkim add
-test.db
-mysql.json
 exercise.ipynb
-samples/
 googlemapskey.txt
 kakaomapkey.txt
 openweatherkey.txt
 roadapikey.txt
-커피업소정보.csv
-chromedriver.exe
-station_data/
-지역별/
-gov_data_api_key.txt
+fontawesome-free-5.15.1-web/
+
 
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
