@@ -21,13 +21,13 @@
         <!-- Links -->
         <ul class="nav nav-pills mr-auto">
             <li class="nav-item mr-4">
-                <a class="nav-link {% if menu.ho %}active{% endif %}" href="#">
+                <a class="nav-link {% if menu.ho %}active{% endif %}" 
+                   href="{% if menu.ho %}#{% else %}/{% endif %}">
                     <i class="fa fa-home"></i> Home
                 </a>
             </li>
             <li class="nav-item mr-3">
-                <a class="nav-link {% if menu.da %}active{% endif %}" 
-                   href="{% if menu.da %}#{% else %}/{% endif %}">
+                <a class="nav-link {% if menu.da %}active{% endif %}" href="#">
                     <i class="fas fa-chart-line"></i> 데이터 분석
                 </a>
             </li>
