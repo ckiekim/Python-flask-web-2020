@@ -1,0 +1,73 @@
+{% extends "09.base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>주가 예측</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <form action="/stock" method="POST">
+                <table class="table table-borderless">
+                    <tr>
+                        <td><label for="code">종목 코드</label></td>
+                        <td><input type="text" id="code" class="form-control" 
+                            placeholder="종목 코드" name="code"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="learn">학습 기간</label></td>
+                        <td style="text-align: center;">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="learn" name="learn" value="1">1년
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="learn" name="learn" value="3">3년
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="learn" name="learn" value="5" checked>5년
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="learn" name="learn" value="8">최장
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="pred">예측 기간</label></td>
+                        <td style="text-align: center;">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="pred" name="pred" value="7" checked>1주일
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="pred" name="pred" value="30">1개월
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="pred" name="pred" value="90">3개월
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="submit" class="btn btn-primary">실행</button>&nbsp;&nbsp;&nbsp;
+                            <button type="reset" class="btn btn-secondary">취소</button>
+                        </td>
+                    </tr>
+                </table>		
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div> 
+{% endblock %}
