@@ -9,7 +9,7 @@
 {% endblock %}
 {% block weather %} {{ weather|safe() }} {% endblock %}
 {% block subtitle %}
-    <small>주가 예측 - </small><strong>기아자동차(000270.KS)</strong>
+    <small>주가 예측 - </small><strong>{{company}}({{code}})</strong>
 {% endblock %}
 {% block content %}
     <div class="row">

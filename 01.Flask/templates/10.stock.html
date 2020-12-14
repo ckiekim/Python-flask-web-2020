@@ -10,12 +10,35 @@
             <form action="/stock" method="POST">
                 <table class="table table-borderless">
                     <tr>
-                        <td><label for="code">종목 코드</label></td>
-                        <td><input type="text" id="code" class="form-control" 
-                            placeholder="종목 코드" name="code"></td>
+                        <td rowspan="2" style="vertical-align: middle"><label for="code">종목 코드</label></td>
+                        <td>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" id="market" name="market" value="KS" checked>KOSPI
+                            </label>
+                        </td>
+                        <td>
+                            <select class="custom-select custom-select-md" name="kospi_code">
+                                {% for key, value in kospi.items() %}
+                                    <option value="{{key}}">{{value}}</option>
+                                {% endfor %}
+                            </select>
                     </tr>
                     <tr>
-                        <td><label for="learn">학습 기간</label></td>
+                        <td>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" id="market" name="market" value="KQ">KOSDAQ
+                            </label>
+                        </td>
+                        <td>
+                            <select class="custom-select custom-select-md" name="kosdaq_code">
+                                {% for key, value in kosdaq.items() %}
+                                    <option value="{{key}}">{{value}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label for="learn">학습 기간</label></td>
                         <td style="text-align: center;">
                             <div class="form-check-inline">
                                 <label class="form-check-label">
@@ -40,16 +63,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="pred">예측 기간</label></td>
+                        <td colspan="2"><label for="pred">예측 기간</label></td>
                         <td style="text-align: center;">
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" id="pred" name="pred" value="7" checked>1주일
+                                    <input type="radio" class="form-check-input" id="pred" name="pred" value="7">1주일
                                 </label>
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" id="pred" name="pred" value="30">1개월
+                                    <input type="radio" class="form-check-input" id="pred" name="pred" value="30" checked>1개월
                                 </label>
                             </div>
                             <div class="form-check-inline">
@@ -60,7 +83,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="text-align: center;">
+                        <td colspan="3" style="text-align: center;">
                             <button type="submit" class="btn btn-primary">실행</button>&nbsp;&nbsp;&nbsp;
                             <button type="reset" class="btn btn-secondary">취소</button>
                         </td>
