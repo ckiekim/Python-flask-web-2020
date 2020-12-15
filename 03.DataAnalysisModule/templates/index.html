@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>빅 데이터/머신 러닝</strong> <small>세계에 오신 것을 환영합니다.</small>
+{% endblock %}
+{% block content %}
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://picsum.photos/640/360?q=1">
+                <div class="carousel-caption">
+                    <h3>빅 데이터/머신 러닝</h3>
+                    <p>머신러닝 파이썬 활용 빅데이터 분석 개발자 양성 과정</p>
+                </div> 
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/640/360?q=2">
+                <div class="carousel-caption">
+                    <h3>빅 데이터</h3>
+                    <p>지도 시각화, Rest-API, 카토그램, 크롤링 등</p>
+                </div> 
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/640/360?q=3">
+                <div class="carousel-caption">
+                    <h3>머신 러닝</h3>
+                    <p>군집화, 회귀, 분류, 이미지 분류 등</p>
+                </div> 
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+{% endblock %}

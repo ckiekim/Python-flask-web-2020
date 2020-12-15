@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_00878cbc7d654c9eb512e4c0813debe2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_00878cbc7d654c9eb512e4c0813debe2" ></div>
+        
+</body>
+<script>    
+    
+            var map_00878cbc7d654c9eb512e4c0813debe2 = L.map(
+                "map_00878cbc7d654c9eb512e4c0813debe2",
+                {
+                    center: [37.5502, 126.982],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ec4fcafa85064c008789d85ab36f6ef8 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            var circle_marker_5726107667f941da81937fbe4d134b34 = L.circleMarker(
+                [37.555632613292495, 126.992217614712],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_5726107667f941da81937fbe4d134b34.bindTooltip(
+                `<div>
+                     남산도시자연공원(5793774㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_05a1ea7d4ab747019497c7906a3a6eb7 = L.circleMarker(
+                [37.5390660422084, 127.153328745828],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_05a1ea7d4ab747019497c7906a3a6eb7.bindTooltip(
+                `<div>
+                     길동생태공원(80683㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e731e9e3cbe6469d84b6556a27338f00 = L.circleMarker(
+                [37.4364305503019, 127.014098361931],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_e731e9e3cbe6469d84b6556a27338f00.bindTooltip(
+                `<div>
+                     서울대공원(9132690㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_67bbdf6333734a1ea0d583739b3013a4 = L.circleMarker(
+                [37.5430701468405, 127.04179909922199],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_67bbdf6333734a1ea0d583739b3013a4.bindTooltip(
+                `<div>
+                     서울숲(480994㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_79d70322c8ee4b7187c58551f6e216e8 = L.circleMarker(
+                [37.5723265509352, 126.881888633222],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_79d70322c8ee4b7187c58551f6e216e8.bindTooltip(
+                `<div>
+                     월드컵공원(2284085㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_827f8ebc4c794e7cb1964b0a22bc119e = L.circleMarker(
+                [37.5752071090486, 126.978413044806],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_827f8ebc4c794e7cb1964b0a22bc119e.bindTooltip(
+                `<div>
+                     광화문시민열린마당(8948㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3b4216c81e8c4f658906f96c74503981 = L.circleMarker(
+                [37.6371081635586, 126.919070865425],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_3b4216c81e8c4f658906f96c74503981.bindTooltip(
+                `<div>
+                     진관근린공원(구파발폭포)(125㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_bdf4545a4b0c4a7ab27aaf8ad45f7b5d = L.circleMarker(
+                [37.5197916984599, 126.911368630536],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_bdf4545a4b0c4a7ab27aaf8ad45f7b5d.bindTooltip(
+                `<div>
+                     중마루근린공원(6456㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9eb1cf24df9242ab8800ebaf86021a29 = L.circleMarker(
+                [37.557595884395106, 127.023004390427],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_9eb1cf24df9242ab8800ebaf86021a29.bindTooltip(
+                `<div>
+                     응봉공원(80309㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_690848fd00034739b6f060fb36d64b7a = L.circleMarker(
+                [37.5574606524359, 126.860947770892],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_690848fd00034739b6f060fb36d64b7a.bindTooltip(
+                `<div>
+                     매화근린공원(1980㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0d7d881c457c47adb7937a73240ca7ed = L.circleMarker(
+                [37.5448139376614, 127.052421806499],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_0d7d881c457c47adb7937a73240ca7ed.bindTooltip(
+                `<div>
+                     성수근린공원(5197㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9d874382f1724a7e9cf77cda29e110d1 = L.circleMarker(
+                [37.5503003119836, 127.14710389039],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_9d874382f1724a7e9cf77cda29e110d1.bindTooltip(
+                `<div>
+                     샛마을근린공원(11467㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d2d13dc866b943fc847924f6bc560adb = L.circleMarker(
+                [37.5268088229325, 126.922284053463],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_d2d13dc866b943fc847924f6bc560adb.bindTooltip(
+                `<div>
+                     여의도근린공원(229539㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e7fb239614cf48f982cb3944ed57d2e5 = L.circleMarker(
+                [37.5727809772819, 127.049064320439],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_e7fb239614cf48f982cb3944ed57d2e5.bindTooltip(
+                `<div>
+                     간데메근린공원(15179㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9897b6502760472d91355269fbe3d397 = L.circleMarker(
+                [37.566929125063204, 127.004389310038],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_9897b6502760472d91355269fbe3d397.bindTooltip(
+                `<div>
+                     훈련원근린공원(16734㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_20ffee184e1e4950a070ee745b5f5568 = L.circleMarker(
+                [37.516126623652504, 126.912126417071],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_20ffee184e1e4950a070ee745b5f5568.bindTooltip(
+                `<div>
+                     영등포근린공원(123088㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f44b169727494ccb88e76d92177aebb3 = L.circleMarker(
+                [37.4953810628125, 126.918914201551],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_f44b169727494ccb88e76d92177aebb3.bindTooltip(
+                `<div>
+                     보라매근린공원(424106㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_75826d5e61f340379c63b9a753799083 = L.circleMarker(
+                [37.5520117024951, 127.078772391405],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_75826d5e61f340379c63b9a753799083.bindTooltip(
+                `<div>
+                     어린이대공원(560552㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_fc085c3ade1c41a687110a352267b2ed = L.circleMarker(
+                [37.543947672756296, 127.12553837870199],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_fc085c3ade1c41a687110a352267b2ed.bindTooltip(
+                `<div>
+                     천호근린공원(26696㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3b5c9f65841e4abebbef9b96f9978767 = L.circleMarker(
+                [37.5201168643347, 126.98459215440901],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_3b5c9f65841e4abebbef9b96f9978767.bindTooltip(
+                `<div>
+                     용산가족공원(75900㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c152df5710dc43c8bd4d1fc4e11c81e8 = L.circleMarker(
+                [37.5746085138333, 126.95561177486401],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_c152df5710dc43c8bd4d1fc4e11c81e8.bindTooltip(
+                `<div>
+                     독립근린공원(113021㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d68832def250419bb6c73b45c8ecbfb9 = L.circleMarker(
+                [37.5805926127615, 127.006531505857],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_d68832def250419bb6c73b45c8ecbfb9.bindTooltip(
+                `<div>
+                     낙산근린공원(201779㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b732f17e3a71422ab770aa8877b0eef5 = L.circleMarker(
+                [37.4730498033959, 127.03697708493601],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_b732f17e3a71422ab770aa8877b0eef5.bindTooltip(
+                `<div>
+                     양재시민의숲(258991㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_436a8e6601734978b9a8b2e3bc94a8d5 = L.circleMarker(
+                [37.468038057989, 126.95929433764799],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_436a8e6601734978b9a8b2e3bc94a8d5.bindTooltip(
+                `<div>
+                     관악산도시자연공원(10420819㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_dc0ce06e194f475d87045c663eaa4ae1 = L.circleMarker(
+                [37.544957405495, 126.962290943049],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_dc0ce06e194f475d87045c663eaa4ae1.bindTooltip(
+                `<div>
+                     효창근린공원(171294㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_98a53f423cef418f906a8f22cab96708 = L.circleMarker(
+                [37.4696150596404, 126.90791394038],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_98a53f423cef418f906a8f22cab96708.bindTooltip(
+                `<div>
+                     감로천생태공원(관악산)(15000㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_299d72cca10249b2860181f610bb60af = L.circleMarker(
+                [37.59720671343771, 127.025777287367],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_299d72cca10249b2860181f610bb60af.bindTooltip(
+                `<div>
+                     개운산근린공원(297926㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1a3ec366ceac4070bedc50035e9c1876 = L.circleMarker(
+                [37.493179404841, 126.84785179925801],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_1a3ec366ceac4070bedc50035e9c1876.bindTooltip(
+                `<div>
+                     개웅산근린공원(411972㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_85722fb08c44488c8481185a967ae4bf = L.circleMarker(
+                [37.5704968494713, 126.97107522045],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_85722fb08c44488c8481185a967ae4bf.bindTooltip(
+                `<div>
+                     경희궁(98470㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_de3f687f109c49eca719e9b54ed4e15d = L.circleMarker(
+                [37.5021658184522, 126.967417939446],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_de3f687f109c49eca719e9b54ed4e15d.bindTooltip(
+                `<div>
+                     국립현충원(2038741㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c70597fb461e42a097ea3620c7e9ce12 = L.circleMarker(
+                [37.5134017482207, 126.850400291522],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_c70597fb461e42a097ea3620c7e9ce12.bindTooltip(
+                `<div>
+                     계남근린공원(603715㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_049ada4e543c48dcbe9615d1d452a4a4 = L.circleMarker(
+                [37.5065812423584, 126.853275884576],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_049ada4e543c48dcbe9615d1d452a4a4.bindTooltip(
+                `<div>
+                     고척근린공원(108120㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1e5d7a241b6748f88214e7457e77c630 = L.circleMarker(
+                [37.534477021678704, 126.87714186959299],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_1e5d7a241b6748f88214e7457e77c630.bindTooltip(
+                `<div>
+                     파리근린공원(29619㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6a2b2d75fd14455497e0b2648c4b4fdf = L.circleMarker(
+                [37.567598225085604, 126.853729825991],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_6a2b2d75fd14455497e0b2648c4b4fdf.bindTooltip(
+                `<div>
+                     허준공원(29843㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_09b64b4668214aa28963e5fedd59344d = L.circleMarker(
+                [37.568754080358204, 126.919576032707],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_09b64b4668214aa28963e5fedd59344d.bindTooltip(
+                `<div>
+                     궁동근린공원(126026㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a1dc730edc3a46ddb43e5933c6775025 = L.circleMarker(
+                [37.5741611064862, 126.840805446203],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_a1dc730edc3a46ddb43e5933c6775025.bindTooltip(
+                `<div>
+                     궁산근린공원(135002㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_99917a1fbef9475cafc1bc20d926e071 = L.circleMarker(
+                [37.4865501143348, 126.96373368702],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_99917a1fbef9475cafc1bc20d926e071.bindTooltip(
+                `<div>
+                     까치산근린공원(384026㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b21dbf360cff44a2a42ba978c6fbfc04 = L.circleMarker(
+                [37.580116526880396, 126.815976107159],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_b21dbf360cff44a2a42ba978c6fbfc04.bindTooltip(
+                `<div>
+                     꿩고개근린공원(180000㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_72e1f93e9e8740ed95733484a53e0009 = L.circleMarker(
+                [37.5108534853387, 126.929587790617],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_72e1f93e9e8740ed95733484a53e0009.bindTooltip(
+                `<div>
+                     노량진공원(416031㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_73f352ac301c4c26b7d75b6cc278b309 = L.circleMarker(
+                [37.573320107089, 127.063817174774],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_73f352ac301c4c26b7d75b6cc278b309.bindTooltip(
+                `<div>
+                     답십리근린공원(160720㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4b6911508159428bb8366c3afd81c4f7 = L.circleMarker(
+                [37.477509613971705, 127.07501755317101],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_4b6911508159428bb8366c3afd81c4f7.bindTooltip(
+                `<div>
+                     대모산도시자연공원(2277252㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b4743363dddd4b248b51240cb49915e3 = L.circleMarker(
+                [37.5706125034675, 126.988058695758],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_b4743363dddd4b248b51240cb49915e3.bindTooltip(
+                `<div>
+                     탑골근린공원(19599㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ae97a0d7fbbf4ad8ba2688e8be91ca4d = L.circleMarker(
+                [37.506063507333295, 126.86840407252],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_ae97a0d7fbbf4ad8ba2688e8be91ca4d.bindTooltip(
+                `<div>
+                     갈산근린공원(138596㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_cbc8346d31be4bb996dd3fc81b250d63 = L.circleMarker(
+                [37.500007630359704, 127.154544398276],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_cbc8346d31be4bb996dd3fc81b250d63.bindTooltip(
+                `<div>
+                     천마근린공원(185295㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e8846218f02848c8bbf561f3a2321cfb = L.circleMarker(
+                [37.489421845872705, 127.044098731026],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_e8846218f02848c8bbf561f3a2321cfb.bindTooltip(
+                `<div>
+                     도곡근린공원(254648㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e142939e0ea14a19a6f42b2bb6267ebe = L.circleMarker(
+                [37.5239508648976, 127.035603166151],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_e142939e0ea14a19a6f42b2bb6267ebe.bindTooltip(
+                `<div>
+                     도산근린공원(29816㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7be7770acf0e4d7b9dd344ae9a098a11 = L.circleMarker(
+                [37.6011947093961, 127.050919089824],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_7be7770acf0e4d7b9dd344ae9a098a11.bindTooltip(
+                `<div>
+                     청량공원(762642㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0512e090e6d344d6aa90a7f828f630dc = L.circleMarker(
+                [37.6479179949756, 127.045419684831],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_0512e090e6d344d6aa90a7f828f630dc.bindTooltip(
+                `<div>
+                     초안산근린공원(664905㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_23bd1a1c9ae24de2a36188470223567f = L.circleMarker(
+                [37.561467673118294, 127.164932597739],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_23bd1a1c9ae24de2a36188470223567f.bindTooltip(
+                `<div>
+                     동명근린공원(99599㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_20dcbc6392ec41a4a3f57c51c69536aa = L.circleMarker(
+                [37.581003261332, 127.00242386959499],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_20dcbc6392ec41a4a3f57c51c69536aa.bindTooltip(
+                `<div>
+                     마로니에공원(5802㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_60f1f863511c48aeaa3f209cb13c9c30 = L.circleMarker(
+                [37.5166296972081, 126.92907968213699],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_60f1f863511c48aeaa3f209cb13c9c30.bindTooltip(
+                `<div>
+                     자매근린공원(16500㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_103eaf89f4394cb48f995b72f2a7a3bd = L.circleMarker(
+                [37.4899814121246, 127.136165542059],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_103eaf89f4394cb48f995b72f2a7a3bd.bindTooltip(
+                `<div>
+                     장지근린공원(585652㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b73d9e9f3f8441c78c88ea9bcf653b81 = L.circleMarker(
+                [37.5517582803975, 127.164598403887],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_b73d9e9f3f8441c78c88ea9bcf653b81.bindTooltip(
+                `<div>
+                     명일근린공원(649709㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3fc8f26b470d4df2bf2051e089c3d28d = L.circleMarker(
+                [37.5809322617353, 126.81412070948],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_3fc8f26b470d4df2bf2051e089c3d28d.bindTooltip(
+                `<div>
+                     방화근린공원(72132㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2d8c226460294477ad1ae30dc80a6f93 = L.circleMarker(
+                [37.510682386018296, 127.07593681027201],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_2d8c226460294477ad1ae30dc80a6f93.bindTooltip(
+                `<div>
+                     아시아근린공원(66027㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a6a4e2ed0bde43d09377c37a9e95d50b = L.circleMarker(
+                [37.5812122452058, 127.067594333995],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_a6a4e2ed0bde43d09377c37a9e95d50b.bindTooltip(
+                `<div>
+                     배봉산근린공원(265582㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b5142580d9c84828a124bec2b3654a44 = L.circleMarker(
+                [37.581487920222294, 126.945406202766],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_b5142580d9c84828a124bec2b3654a44.bindTooltip(
+                `<div>
+                     안산도시자연공원(2088704㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f4b818fc453f476db378b472beacb6ea = L.circleMarker(
+                [37.5577647064341, 126.868791941346],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_f4b818fc453f476db378b472beacb6ea.bindTooltip(
+                `<div>
+                     염창근린공원(112070㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a78ab72fc8684328b899e772a7c07842 = L.circleMarker(
+                [37.5838378820699, 126.933130027512],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_a78ab72fc8684328b899e772a7c07842.bindTooltip(
+                `<div>
+                     백련근린공원(993724㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f22915a033a4444bb8d0f4a77305d762 = L.circleMarker(
+                [37.5051911812908, 127.131652867637],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_f22915a033a4444bb8d0f4a77305d762.bindTooltip(
+                `<div>
+                     오금근린공원(219167㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_24d4b46ead07422899715215c493cd5b = L.circleMarker(
+                [37.6292422588766, 127.033052305279],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_24d4b46ead07422899715215c493cd5b.bindTooltip(
+                `<div>
+                     오동근린공원(1349556㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8e9c6e0103474cb494974c6f9c50ab05 = L.circleMarker(
+                [37.597597216589, 126.904136368743],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_8e9c6e0103474cb494974c6f9c50ab05.bindTooltip(
+                `<div>
+                     봉산도시자연공원(1511198㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_170f0a511b7540fc831b70e3ac0935e5 = L.circleMarker(
+                [37.500904632095605, 126.83815984403401],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_170f0a511b7540fc831b70e3ac0935e5.bindTooltip(
+                `<div>
+                     온수도시자연공원(1097565㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_67da44a7869949d38db4da4e06be758a = L.circleMarker(
+                [37.5139124172416, 127.055491837043],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_67da44a7869949d38db4da4e06be758a.bindTooltip(
+                `<div>
+                     봉은공원(328018㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_13513dcc55a34c20a78c478c402cda5b = L.circleMarker(
+                [37.5203396980951, 127.11551787662701],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_13513dcc55a34c20a78c478c402cda5b.bindTooltip(
+                `<div>
+                     올림픽공원(1447122㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d8d1278326c24dc4b21a99bef614d72e = L.circleMarker(
+                [37.5911688666848, 126.99012396403499],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_d8d1278326c24dc4b21a99bef614d72e.bindTooltip(
+                `<div>
+                     와룡근린공원(207790㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_18ac5b5d184740f59e499d855d81a4ff = L.circleMarker(
+                [37.608617448205706, 127.084236298283],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_18ac5b5d184740f59e499d855d81a4ff.bindTooltip(
+                `<div>
+                     봉화산근린공원(1018689㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_156f6389ea8f4948968f759c3709430b = L.circleMarker(
+                [37.599651356207296, 126.973740371578],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_156f6389ea8f4948968f759c3709430b.bindTooltip(
+                `<div>
+                     북악산도시자연공원(954553㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_55784ee6be6e421e9438e91250e79ecd = L.circleMarker(
+                [37.674216869301794, 126.98725407867201],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_55784ee6be6e421e9438e91250e79ecd.bindTooltip(
+                `<div>
+                     북한산국립공원(1667848㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_961da0eab8854ec384254c7cf5e99f3c = L.circleMarker(
+                [37.5465227992805, 126.91176914886499],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_961da0eab8854ec384254c7cf5e99f3c.bindTooltip(
+                `<div>
+                     외국인묘지공원(13224㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3a41487a48904f38a8468dcf0719494b = L.circleMarker(
+                [37.6211009240235, 126.930898267409],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_3a41487a48904f38a8468dcf0719494b.bindTooltip(
+                `<div>
+                     불광근린공원(130345㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f1843074367e461c87c4ea0490ebb62e = L.circleMarker(
+                [37.6555053167396, 127.081494871112],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_f1843074367e461c87c4ea0490ebb62e.bindTooltip(
+                `<div>
+                     불암산도시자연공원(5332422㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0399fc832e884a91a910ae0a164f2e2c = L.circleMarker(
+                [37.573383957255004, 127.090942778547],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_0399fc832e884a91a910ae0a164f2e2c.bindTooltip(
+                `<div>
+                     용마폭포공원(5107964㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ddddec7b64584ad38601fb6a53f15cc9 = L.circleMarker(
+                [37.5134579901091, 126.949411135441],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_ddddec7b64584ad38601fb6a53f15cc9.bindTooltip(
+                `<div>
+                     사육신공원(47832㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3229b72ed0304094bda74e887c08e7d9 = L.circleMarker(
+                [37.5421447426774, 126.87752068543001],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_3229b72ed0304094bda74e887c08e7d9.bindTooltip(
+                `<div>
+                     용왕산근린공원(213552㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ad95ca130a3b45e881d305a2ef64b6e1 = L.circleMarker(
+                [37.57630700875679, 126.968620728293],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_ad95ca130a3b45e881d305a2ef64b6e1.bindTooltip(
+                `<div>
+                     사직근린공원(168099㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ed50cb7521bc446b901e70d187a866f2 = L.circleMarker(
+                [37.554944661775, 126.84458068549401],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_ed50cb7521bc446b901e70d187a866f2.bindTooltip(
+                `<div>
+                     우장산근린공원(359435㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1938669e089644218126e856c715d66b = L.circleMarker(
+                [37.4859101761481, 126.97462451611099],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_1938669e089644218126e856c715d66b.bindTooltip(
+                `<div>
+                     삼일근린공원(36660㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d4425193b0c645c398f906fb90e51793 = L.circleMarker(
+                [37.5876994790621, 126.983451107631],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_d4425193b0c645c398f906fb90e51793.bindTooltip(
+                `<div>
+                     삼청근린공원(380735㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9192c745bf65455d889a9d109ccecf23 = L.circleMarker(
+                [37.58450559695989, 126.963877217283],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_9192c745bf65455d889a9d109ccecf23.bindTooltip(
+                `<div>
+                     인왕산도시자연공원(1807420㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d3fdef8cafac47658cd8c12a6fe87c7e = L.circleMarker(
+                [37.4941118064266, 126.937594360049],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_d3fdef8cafac47658cd8c12a6fe87c7e.bindTooltip(
+                `<div>
+                     상도근린공원(359342㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4ea9ef89a5f44a769a4ea2831bf02dfd = L.circleMarker(
+                [37.5330196344931, 127.151356340452],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_4ea9ef89a5f44a769a4ea2831bf02dfd.bindTooltip(
+                `<div>
+                     일자산도시자연공원(632733㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_52bd6bc889324d68bb486cb408087e60 = L.circleMarker(
+                [37.6536249957003, 127.02883347222999],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_52bd6bc889324d68bb486cb408087e60.bindTooltip(
+                `<div>
+                     쌍문근린공원(328018㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_815a233d01ee4485b604003aa09bd24b = L.circleMarker(
+                [37.6920670995472, 127.065364973013],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_815a233d01ee4485b604003aa09bd24b.bindTooltip(
+                `<div>
+                     수락산도시자연공원(6691885㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9d336337d57a41e1b785b77c37232e6f = L.circleMarker(
+                [37.507704547907, 127.100563730672],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_9d336337d57a41e1b785b77c37232e6f.bindTooltip(
+                `<div>
+                     송파나루근린공원(석촌호수)(285757㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_bb5800fbd864433f8aedfade6aec0a86 = L.circleMarker(
+                [37.542383234557796, 126.901819342041],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_bb5800fbd864433f8aedfade6aec0a86.bindTooltip(
+                `<div>
+                     선유도근린공원(110407㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7e574e48408b41d68799e318cbb3e686 = L.circleMarker(
+                [37.5554795035057, 126.964815746241],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_7e574e48408b41d68799e318cbb3e686.bindTooltip(
+                `<div>
+                     손기정체육공원(29682㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_5b37f15a75bb4f79a98942d23c7d4a5a = L.circleMarker(
+                [37.594998122674205, 127.00816762611099],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_5b37f15a75bb4f79a98942d23c7d4a5a.bindTooltip(
+                `<div>
+                     성북근린공원(137759㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6846689466614ed193d93fb15cbb8b1e = L.circleMarker(
+                [37.542327469887, 126.851960042338],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_6846689466614ed193d93fb15cbb8b1e.bindTooltip(
+                `<div>
+                     봉제산공원(917190㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_96e4368219074321bd380b6447ae0145 = L.circleMarker(
+                [37.689539174010704, 127.04716226196399],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_96e4368219074321bd380b6447ae0145.bindTooltip(
+                `<div>
+                     서울창포원(51470㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_46952a59d4624b65985bd12a8e5605cb = L.circleMarker(
+                [37.620254461302295, 127.044324732036],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_46952a59d4624b65985bd12a8e5605cb.bindTooltip(
+                `<div>
+                     북서울꿈의숲(662543㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_094ed8f503ab41238d20a8791d458980 = L.circleMarker(
+                [37.5274318869812, 126.830086887893],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_094ed8f503ab41238d20a8791d458980.bindTooltip(
+                `<div>
+                     서서울호수공원(217946㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_df61d4180c13483688faaffe95483115 = L.circleMarker(
+                [37.606399332182995, 127.109453204008],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_df61d4180c13483688faaffe95483115.bindTooltip(
+                `<div>
+                     중랑캠핑숲(179666㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_cea0ef40dd2c4ed2b04bbb343b7adfca = L.circleMarker(
+                [37.652961732520104, 127.011901217642],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_cea0ef40dd2c4ed2b04bbb343b7adfca.bindTooltip(
+                `<div>
+                     솔밭근린공원(34955㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2327981f9717496e9cdd4ab420ed7c36 = L.circleMarker(
+                [37.468311598807, 126.908534104168],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_2327981f9717496e9cdd4ab420ed7c36.bindTooltip(
+                `<div>
+                     금천체육공원(관악산)(18083㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_cc6ad9cacd0b48e5afd3d257085c6f9b = L.circleMarker(
+                [37.4463967342554, 126.90444466887399],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_cc6ad9cacd0b48e5afd3d257085c6f9b.bindTooltip(
+                `<div>
+                     금천폭포근린공원(4835㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ef022fcd555d4e6d8a34889e710bff71 = L.circleMarker(
+                [37.4744740100373, 126.90917268201001],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_ef022fcd555d4e6d8a34889e710bff71.bindTooltip(
+                `<div>
+                     만수천공원(관악산)(19650㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4749c59336574490a05e3881b6986c0d = L.circleMarker(
+                [37.659608559713995, 127.02971478364901],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_4749c59336574490a05e3881b6986c0d.bindTooltip(
+                `<div>
+                     발바닥공원(7000㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_762f27d2c73446768c2a21d23088cc51 = L.circleMarker(
+                [37.6475682555549, 127.05088353713002],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_762f27d2c73446768c2a21d23088cc51.bindTooltip(
+                `<div>
+                     월천근린공원(10712㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_428eacdac324475aa82be28bc5507db8 = L.circleMarker(
+                [37.573225401116, 127.04009552998899],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_428eacdac324475aa82be28bc5507db8.bindTooltip(
+                `<div>
+                     용두근린공원(17182㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ccb87cdb523447509ebb74d872ff0775 = L.circleMarker(
+                [37.5774940624802, 126.88512440817499],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_ccb87cdb523447509ebb74d872ff0775.bindTooltip(
+                `<div>
+                     상암근린공원(160349㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ae99774f928a41ac9bbbbeb74af1e7bb = L.circleMarker(
+                [37.55301985391829, 126.929838872054],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_ae99774f928a41ac9bbbbeb74af1e7bb.bindTooltip(
+                `<div>
+                     와우근린공원(87432㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3c5b6b415b7b441abd0501c015f99119 = L.circleMarker(
+                [37.5492412669908, 127.018529808669],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_3c5b6b415b7b441abd0501c015f99119.bindTooltip(
+                `<div>
+                     금호근린공원(13467㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0cf414d3538b4c29882776da4717eb3b = L.circleMarker(
+                [37.543810961870996, 127.020086053671],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_0cf414d3538b4c29882776da4717eb3b.bindTooltip(
+                `<div>
+                     달맞이근린공원(46871㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e530dec619d847c48548c5f04b581c14 = L.circleMarker(
+                [37.486512502403706, 127.128966800378],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_e530dec619d847c48548c5f04b581c14.bindTooltip(
+                `<div>
+                     문정근린공원(49972㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_3b8a35b513234548903319c52918e66b = L.circleMarker(
+                [37.4698840182934, 127.032021588149],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_3b8a35b513234548903319c52918e66b.bindTooltip(
+                `<div>
+                     문화예술공원(74385㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7f9bdec9046b430bb6cbc701462651b0 = L.circleMarker(
+                [37.5734304140493, 126.975960388222],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_7f9bdec9046b430bb6cbc701462651b0.bindTooltip(
+                `<div>
+                     세종로공원(8868㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_25026d7305e5409cb9af8897a8f461c7 = L.circleMarker(
+                [37.464328028801205, 126.938417382626],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_25026d7305e5409cb9af8897a8f461c7.bindTooltip(
+                `<div>
+                     샘말공원(관악산)(10634㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_252e8f72c04346aa8c95bc9530248bfd = L.circleMarker(
+                [37.6474940352509, 127.041384128711],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_252e8f72c04346aa8c95bc9530248bfd.bindTooltip(
+                `<div>
+                     초안산생태공원(22113㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_81169852971c436c9ea265da15a985bf = L.circleMarker(
+                [37.481968435194204, 126.823669475359],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_81169852971c436c9ea265da15a985bf.bindTooltip(
+                `<div>
+                     푸른수목원(0㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_624fe057743c42f5ae02dbe25c965236 = L.circleMarker(
+                [37.6235562459949, 126.900767390316],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_624fe057743c42f5ae02dbe25c965236.bindTooltip(
+                `<div>
+                     서오능도시자연공원(1082847㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d79decb70e2f42c78568a98566e612ef = L.circleMarker(
+                [37.4426405512928, 127.05423047783701],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_d79decb70e2f42c78568a98566e612ef.bindTooltip(
+                `<div>
+                     청계산도시자연공원(3692455㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_31457f388606488987d09e64ce54d274 = L.circleMarker(
+                [37.5880427342845, 126.805797363476],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_31457f388606488987d09e64ce54d274.bindTooltip(
+                `<div>
+                     개화근린공원(386500㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8ddfe9d6528641e8a5e312518d3cfa1c = L.circleMarker(
+                [37.551755828417896, 127.100376070139],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_8ddfe9d6528641e8a5e312518d3cfa1c.bindTooltip(
+                `<div>
+                     아차산생태공원(23450㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_94d75b93022b4586a52d45c77218fc2b = L.circleMarker(
+                [37.4486695018909, 127.066583456467],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_94d75b93022b4586a52d45c77218fc2b.bindTooltip(
+                `<div>
+                     인능산도시자연공원(2400833㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_59ae9f9819bb46c3b95dbfad4c3b0615 = L.circleMarker(
+                [37.466705428984106, 127.059308631465],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_59ae9f9819bb46c3b95dbfad4c3b0615.bindTooltip(
+                `<div>
+                     구룡산(2752421㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_96fef1bc3cd24b3f824e74d1086d8442 = L.circleMarker(
+                [37.4701224414245, 127.009205899641],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_96fef1bc3cd24b3f824e74d1086d8442.bindTooltip(
+                `<div>
+                     우면산도시자연공원(4180551㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c16aaa87b2f84856ad76c513ddd8c11c = L.circleMarker(
+                [37.6294495371357, 126.921773325191],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_c16aaa87b2f84856ad76c513ddd8c11c.bindTooltip(
+                `<div>
+                     향림근린공원(147859㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e6b68ba5c9bb494883bccef66869b675 = L.circleMarker(
+                [37.5919508073299, 126.90987082630899],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_e6b68ba5c9bb494883bccef66869b675.bindTooltip(
+                `<div>
+                     신사근린공원(111650㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f5af8c270c81441b8772ab27e1bbf064 = L.circleMarker(
+                [37.5560581817344, 126.97211589416099],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_f5af8c270c81441b8772ab27e1bbf064.bindTooltip(
+                `<div>
+                     문화역 서울284(0㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_01cc0c7b35794f0fac3267234990fdce = L.circleMarker(
+                [37.488127018825395, 127.093225474436],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_01cc0c7b35794f0fac3267234990fdce.bindTooltip(
+                `<div>
+                     광평근린공원(519782㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b269307d2ccd4949bec98f350314084d = L.circleMarker(
+                [37.5210712813721, 127.051232687748],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_b269307d2ccd4949bec98f350314084d.bindTooltip(
+                `<div>
+                     청담근린공원(59347㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_480f4e599f174385a3ddbb1edcca2737 = L.circleMarker(
+                [37.5374114232963, 127.15424625306801],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_480f4e599f174385a3ddbb1edcca2737.bindTooltip(
+                `<div>
+                     허브천문공원(25500㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_26c97555da3446309ae3c260befd4467 = L.circleMarker(
+                [37.618962003178, 126.921162124977],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_26c97555da3446309ae3c260befd4467.bindTooltip(
+                `<div>
+                     연신내물빛공원(2560㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7b0d003576ec470181a39adf81d8bdf4 = L.circleMarker(
+                [37.60548904526961, 127.113008570677],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_7b0d003576ec470181a39adf81d8bdf4.bindTooltip(
+                `<div>
+                     나들이근린공원(32000㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ab44b1a6a54b4f5da077f13347a26aed = L.circleMarker(
+                [37.576055524348995, 127.017547609345],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_ab44b1a6a54b4f5da077f13347a26aed.bindTooltip(
+                `<div>
+                     숭인근린공원(45615㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_64176b3a0f214915a3f5fba803924a13 = L.circleMarker(
+                [37.5875793966445, 127.098770889366],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_64176b3a0f214915a3f5fba803924a13.bindTooltip(
+                `<div>
+                     서일대뒷산공원(631021㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e732283c74c24bf4abec75f6e3f5aa48 = L.circleMarker(
+                [37.5802640273795, 127.094512194358],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_e732283c74c24bf4abec75f6e3f5aa48.bindTooltip(
+                `<div>
+                     용마도시자연공원(사가정공원)(109635㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e85f6969337a425687bf9760dfbde0c7 = L.circleMarker(
+                [37.570346688761504, 126.89503142011499],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_e85f6969337a425687bf9760dfbde0c7.bindTooltip(
+                `<div>
+                     문화비축기지(140022㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_131258e004a74fa2b9083af9840d77c5 = L.circleMarker(
+                [37.6304565957753, 127.07210332286199],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_131258e004a74fa2b9083af9840d77c5.bindTooltip(
+                `<div>
+                     경춘선숲길(211392㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f72a0198841c4ffab961a05fb61923fe = L.circleMarker(
+                [37.4710471194001, 127.10545934276001],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_f72a0198841c4ffab961a05fb61923fe.bindTooltip(
+                `<div>
+                     율현공원(157535㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_23fc16ecc3284207a7ef7b110beb48b4 = L.circleMarker(
+                [37.5575463434632, 126.976607882008],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_00878cbc7d654c9eb512e4c0813debe2);
+        
+    
+            circle_marker_23fc16ecc3284207a7ef7b110beb48b4.bindTooltip(
+                `<div>
+                     서울로7017(0㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
