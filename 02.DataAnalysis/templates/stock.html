@@ -13,11 +13,11 @@
                         <td rowspan="2" style="vertical-align: middle;"><label for="code">종목 코드</label></td>
                         <td>
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" id="market" name="market" value="KS" checked>KOSPI
+                                <input type="radio" class="form-check-input" id="market1" name="market" value="KS" checked>KOSPI
                             </label>
                         </td>
                         <td>
-                            <select class="custom-select custom-select-md" name="kospi_code">
+                            <select class="custom-select custom-select-md" id="kospi" name="kospi_code">
                                 {% for key, value in kospi.items() %}
                                     <option value="{{key}}">{{value}}</option>
                                 {% endfor %}
@@ -26,11 +26,11 @@
                     <tr>
                         <td>
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" id="market" name="market" value="KQ">KOSDAQ
+                                <input type="radio" class="form-check-input" id="market2" name="market" value="KQ">KOSDAQ
                             </label>
                         </td>
                         <td>
-                            <select class="custom-select custom-select-md" name="kosdaq_code">
+                            <select class="custom-select custom-select-md" id="kosdaq" name="kosdaq_code">
                                 {% for key, value in kosdaq.items() %}
                                     <option value="{{key}}">{{value}}</option>
                                 {% endfor %}
@@ -93,4 +93,22 @@
         </div>
         <div class="col-2"></div>
     </div> 
+{% endblock %}
+{% block additional_body %}
+    <script>
+        $('#kosdaq').on('input', function() {
+            $('#market2')[0].checked = true
+        });
+        $('#kospi').on('input', function() {
+            $('#market1')[0].checked = true
+        });
+        /* document.getElementById('#kospi').addEventListener('input', function() {
+            document.getElementById('#market1').checked = true
+            document.getElementById('#market2').checked = false
+        }, false);
+        document.getElementById('#kosdaq').addEventListener('input', function() {
+            document.getElementById('#market1').checked = false
+            document.getElementById('#market2').checked = true
+        }, false); */
+    </script>
 {% endblock %}
