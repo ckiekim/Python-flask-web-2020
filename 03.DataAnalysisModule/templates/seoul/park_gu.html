@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>서울 자치구별 공원비교</strong> <small>- {{option_dict[option]}}</small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="w-90 ml-5">
+            <iframe src="{{url_for('static', filename='img/park_gu.html', q=mtime)}}" frameborder="1" width="800" height="500"></iframe>
+        </div>
+        <button class="btn btn-primary mt-3" style="margin-left: 20%;" onclick="location.href='/seoul/park_gu/area'">공원면적</button>
+        <button class="btn btn-primary ml-3 mt-3" onclick="location.href='/seoul/park_gu/count'">공원수</button>
+        <button class="btn btn-primary ml-3 mt-3" onclick="location.href='/seoul/park_gu/area_ratio'">공원면적 비율</button>
+        <button class="btn btn-primary ml-3 mt-3" onclick="location.href='/seoul/park_gu/per_person'">인당 공원면적</button>
+    </div>
+{% endblock %}
