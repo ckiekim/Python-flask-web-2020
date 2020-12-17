@@ -1,15 +1,17 @@
 from flask import Flask, render_template, session, request, g
-from bp1_seoul.seoul import seoul_bp
-from bp5_stock.stock import stock_bp
 from datetime import timedelta
 import os, json, logging
 from logging.config import dictConfig
+from bp1_seoul.seoul import seoul_bp
+from bp3_cartogram.carto import carto_bp
+from bp5_stock.stock import stock_bp
 from my_util.weather import get_weather
 
 app = Flask(__name__)
 app.secret_key = 'qwert12345'
 app.config['SESSION_COOKIE_PATH'] = '/'
 app.register_blueprint(seoul_bp, url_prefix='/seoul')
+app.register_blueprint(carto_bp, url_prefix='/cartogram')
 app.register_blueprint(stock_bp, url_prefix='/stock')
 
 with open('./logging.json', 'r') as file:
