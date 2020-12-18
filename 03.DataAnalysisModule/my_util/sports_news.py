@@ -1,5 +1,6 @@
 import requests, time
 from selenium import webdriver
+from flask import current_app
 
 def get_sports_news(filename):
     driver = webdriver.Chrome('./bp6_wordcloud/chromedriver')
@@ -17,7 +18,8 @@ def get_sports_news(filename):
     option_url = '/news/index.nhn?isphoto=N&page='
     title_list = []
     for event in events:
-        print(event, end=': 1, ')
+        #print(event, end=': 1, ')
+        current_app.logger.debug(f'{event} - 1')
         url = f'{base_url}{event}{option_url}{i}'
         driver.get(url)
         time.sleep(2)
@@ -46,7 +48,8 @@ def get_sports_news(filename):
             numPage=1
 
         for i in range(2, numPage+1):
-            print(i, end=', ')
+            #print(i, end=', ')
+            current_app.logger.debug(f'{event} - {i}')
             url = f'{base_url}{event}{option_url}{i}'
             driver.get(url)
             time.sleep(2)
@@ -57,7 +60,7 @@ def get_sports_news(filename):
                 text = li.find_element_by_css_selector('.text')
                 title = text.find_element_by_tag_name('span').text
                 title_list.append(title)
-        print()
+        #print()
 
     driver.close()
     title_str = ' '.join(title for title in title_list)
