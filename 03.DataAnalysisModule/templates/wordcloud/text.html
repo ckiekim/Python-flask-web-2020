@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>워드 클라우드</strong> - <small>텍스트 파일</small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <form action="/wordcloud/text" method="POST" enctype="multipart/form-data">
+                <table class="table table-borderless">
+                    <tr>
+                        <td><label for="lang">한영 구분</label></td>
+                        <td>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="lang" name="lang" value="ko" checked>한글
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="lang" name="lang" value="en">영어
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>텍스트 파일</td>
+                        <td>
+                            <div class="custom-file mb-3">
+                                <input type="file" class="custom-file-input" id="text" name="text">
+                                <label class="custom-file-label" for="text">업로드할 텍스트 파일 선택</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>마스크 파일</td>
+                        <td>
+                            <div class="custom-file mb-3">
+                                <input type="file" class="custom-file-input" id="mask" name="mask">
+                                <label class="custom-file-label" for="mask">업로드할 이미지 파일 선택</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="stop_words">금지어<br>(Stopwords)</label></td>
+                        <td>
+                            <textarea name="stop_words" id="stop_words" cols="50" rows="5"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="submit" class="btn btn-primary">실행</button>&nbsp;&nbsp;&nbsp;
+                            <button type="reset" class="btn btn-secondary">취소</button>
+                        </td>
+                    </tr>
+                </table>		
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+{% endblock %}
+{% block additional_body %}
+    <script>
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+{% endblock %}
