@@ -4,10 +4,12 @@ googlemapskey.txt
 kakaomapkey.txt
 openweatherkey.txt
 roadapikey.txt
+giv_data_api_key.txt
 fontawesome-free-5.15.1-web/
 log/
 upload/
 chromedriver.exe
+covid.db
 
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
