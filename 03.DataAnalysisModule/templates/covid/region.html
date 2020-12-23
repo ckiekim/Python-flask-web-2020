@@ -9,7 +9,7 @@
 {% endblock %}
 {% block weather %} {{ weather|safe() }} {% endblock %}
 {% block subtitle %}
-    <strong">코로나-19 일자별 현황</strong><small> - {{date}}</small>
+    <strong">코로나-19 지역별 현황</strong><small> - {{date}}</small>
 {% endblock %}
 {% block content %}
     <div class="row">
@@ -72,7 +72,7 @@
         e.preventDefault();
 
         date = $('#datepicker1').val(); 
-        endpoint = '/covid/daily?date=' + date;
+        endpoint = '/covid/region?date=' + date;
 
         window.location.href = endpoint
 

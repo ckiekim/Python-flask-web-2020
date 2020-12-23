@@ -95,3 +95,11 @@ def get_agender_by_date(date):
         dm.write_agender(params)
 
     current_app.logger.info(f'{date} agender data successfully inserted.')
+
+def get_daily(df, col, new):
+    diff = [0]
+    for i in range(1, len(df)):
+        diff.append(df[col][i] - df[col][i-1])
+    del df[col]
+    df[new] = diff
+    return df

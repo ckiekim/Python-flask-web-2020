@@ -62,3 +62,14 @@ def get_region_items_by_gubun(items, gubun):
     conn.close()
     return rows
 
+def get_agender_items_by_gubun(items, gubun):
+    conn = sqlite3.connect('./db/covid.db')
+    cur = conn.cursor()
+
+    sql = f'select {items} from agender where gubun=?;'
+    cur.execute(sql, (gubun,))
+    rows = cur.fetchall()
+    
+    cur.close()
+    conn.close()
+    return rows
