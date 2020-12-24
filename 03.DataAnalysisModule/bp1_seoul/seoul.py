@@ -36,8 +36,8 @@ def park():
         map.save(html_file)
         mtime = int(os.stat(html_file).st_mtime)
         return render_template('seoul/park.html', menu=menu, weather=get_weather_main(),
-                                park_list=list(park_new['공원명']), gu_list=list(park_gu.index),
-                                mtime=mtime)
+                                park_list=list(park_new['공원명'].sort_values()), 
+                                gu_list=list(park_gu.index), mtime=mtime)
     else:
         gubun = request.form['gubun']
         if gubun == 'park':

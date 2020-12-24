@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        /* Make the image fully responsive */
+        td img {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>서울시 코로나-19 자치구별 비교</strong><small> </small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10">
+            <form class="form-inline" action="/covid/seoul_comp" method="POST">
+                <input type="radio" class="form-check-input ml-5" id="gubun1" name="gubun" value="ratio" 
+                        {% if month=='ratio' %}checked{% endif %}>천명당 확진자 수
+                <input type="radio" class="form-check-input ml-5" id="gubun2" name="gubun" value="sum"
+                        {% if month!='ratio' %}checked{% endif %}>확진자수
+                <select class="custom-select mt-2 mx-2" id="month" name="month">
+                    {% for mon in month_list %}
+                        <option value="{{mon}}" {% if mon==month %}selected{% endif %}>{{mon}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary mt-2 ml-5">확인</button>
+            </form>
+        </div>
+        <div class="col-12">
+            <table>
+                <tr>
+                    <td>
+                        <img src="{{url_for('static', filename='img/seoul_comp.png', q=mtime)}}"
+                                width="600" alt="서울시 코로나-19 자치구별 비교 이미지">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>   
+{% endblock %}
+{% block additional_body %}
+    <script>
+        $('#month').on('input', () => {
+            $('#gubun2')[0].checked = true
+        });
+    </script>
+{% endblock %}

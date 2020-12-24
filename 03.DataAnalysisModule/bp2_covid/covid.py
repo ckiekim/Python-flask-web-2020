@@ -77,9 +77,9 @@ def region_seq():
         region_str = request.args.get('region', '전국 서울 경기 대구')
         region_list = region_str.split()
         img_file = os.path.join(current_app.root_path, 'static/img/covid_seq.png')
-        plt.figure()
+        plt.figure(figsize=(12,8))
         for region in region_list:
-            cdf[region].plot(grid=True, figsize=(12,8))
+            cdf[region].plot(grid=True)
         plt.title('지역별 확진자 추이', fontsize=15)
         plt.legend()
         plt.savefig(img_file)
@@ -138,3 +138,97 @@ def age_seq():
         #print(age_list)
         age_str = ' '.join(age for age in age_list)
         return redirect(url_for('covid_bp.age_seq')+f'?age={age_str}')
+
+@covid_bp.route('/seoul_seq', methods=['GET', 'POST'])
+def seoul_seq():
+    if request.method == 'GET':
+        mpl.rc('font', family='Malgun Gothic')
+        mpl.rc('axes', unicode_minus=False)
+        menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0}
+
+        cdf_raw, gu_list = cu.make_corona_raw_df()
+
+        gu_str = request.args.get('gu', '강서구 양천구 영등포구')
+        selected_gu = gu_str.split()
+        img_file = os.path.join(current_app.root_path, 'static/img/seoul_seq.png')
+        plt.figure(figsize=(12,6))
+        for gu in selected_gu:
+            cdf_raw[gu].plot(grid=True)
+        plt.title('서울시 자치구별 확진자 추이', fontsize=15)
+        plt.legend()
+        plt.savefig(img_file)
+        mtime = int(os.stat(img_file).st_mtime)
+        gu_str = ', '.join(gu for gu in selected_gu)
+
+        return render_template('covid/seoul_seq.html', menu=menu, weather=get_weather_main(),
+                                mtime=mtime, gu_list=gu_list, gu_str=gu_str)
+
+    else:
+        selected_gu = request.form.getlist('gu')
+        gu_str = ' '.join(gu for gu in selected_gu)
+        return redirect(url_for('covid_bp.seoul_seq')+f'?gu={gu_str}')
+
+@covid_bp.route('/seoul_comp', methods=['GET', 'POST'])
+def seoul_comp():
+    if request.method == 'GET':
+        mpl.rc('font', family='Malgun Gothic')
+        mpl.rc('axes', unicode_minus=False)
+        menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0}
+
+        cdf_raw, _ = cu.make_corona_raw_df()
+        cdf = cu.make_corona_df(cdf_raw)
+
+        month = request.args.get('month', 'ratio')
+        img_file = os.path.join(current_app.root_path, 'static/img/seoul_comp.png')
+        plt.figure(figsize=(12,8))
+        if month == 'ratio':
+            cdf['천명당 확진자 수'].sort_values().plot(kind='barh', grid=True)
+            plt.title('자치구별 천명당 확진자 수', fontsize=15)
+        else:
+            cdf[month].sort_values().plot(kind='barh', grid=True)
+            plt.title(f'자치구별 {month} 확진자 수', fontsize=15)
+
+        plt.ylabel('')
+        plt.savefig(img_file)
+        mtime = int(os.stat(img_file).st_mtime)
+        month_list = ['누적','12월','11월','10월','9월','8월','7월','6월','5월','4월','3월','2월','1월']
+
+        return render_template('covid/seoul_comp.html', menu=menu, weather=get_weather_main(),
+                                mtime=mtime, month=month, month_list=month_list)
+
+    else:
+        gubun = request.form['gubun']
+        if gubun == 'ratio':
+            return redirect(url_for('covid_bp.seoul_comp'))
+        
+        month = request.form['month']
+        return redirect(url_for('covid_bp.seoul_comp')+f'?month={month}')
+
+@covid_bp.route('/seoul_map/<option>')
+def seoul_map(option):
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':1, 'cg':0, 'cr':0, 'st':0, 'wc':0}
+    geo_data = json.load(open('./static/data/skorea_municipalities_geo_simple.json', encoding='utf8'))
+    
+    cdf_raw, _ = cu.make_corona_raw_df()
+    cdf = cu.make_corona_df(cdf_raw)
+
+    html_file = os.path.join(current_app.root_path, 'static/img/seoul_corona.html')
+    map = folium.Map(location=[37.5502, 126.982], zoom_start=11, tiles='Stamen Toner')
+    if option == 'ratio':
+        folium.Choropleth(geo_data = geo_data,
+               data = cdf['천명당 확진자 수'],
+               columns = [cdf.index, cdf['천명당 확진자 수']],
+               fill_color = 'YlGnBu',
+               key_on = 'feature.id').add_to(map)
+    else:
+        folium.Choropleth(geo_data = geo_data,
+               data = cdf['누적'],
+               columns = [cdf.index, cdf['누적']],
+               fill_color = 'PuRd',
+               key_on = 'feature.id').add_to(map)
+    map.save(html_file)
+    mtime = int(os.stat(html_file).st_mtime)
+    option_str = '천명당 확진자 수' if option == 'ratio' else '누적 확진자 수'
+
+    return render_template('covid/seoul_map.html', menu=menu, weather=get_weather_main(),
+                            mtime=mtime, option_str=option_str)

@@ -11,7 +11,7 @@
                 <input type="radio" class="form-check-input" id="gubun1" name="gubun" value="park" checked>공원명:
                 <select class="custom-select my-2 mx-2" id="name" name="name">
                     {% for park in park_list %}
-                        <option value="{{park}}">{{park}}</option>
+                        <option value="{{park}}" {% if park=='남산도시자연공원' %}selected{% endif %}>{{park}}</option>
                     {% endfor %}
                 </select>
                 <input type="radio" class="form-check-input ml-3" id="gubun2" name="gubun" value="gu">자치구:

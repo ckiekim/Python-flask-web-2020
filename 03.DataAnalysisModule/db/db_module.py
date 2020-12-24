@@ -73,3 +73,15 @@ def get_agender_items_by_gubun(items, gubun):
     cur.close()
     conn.close()
     return rows
+
+def get_seoul_items_by_gu(items, gu):
+    conn = sqlite3.connect('./db/covid.db')
+    cur = conn.cursor()
+
+    sql = f'select {items} from seoul where region=?;'
+    cur.execute(sql, (gu,))
+    rows = cur.fetchall()
+    
+    cur.close()
+    conn.close()
+    return rows
