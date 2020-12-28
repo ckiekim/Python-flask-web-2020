@@ -148,27 +148,37 @@ def cctv(option):
     df.set_index('구별', inplace=True)
     df_sort = df.sort_values('오차', ascending=False)
 
-    fp1 = np.polyfit(df['인구수'], df['소계'], 1)
-    fx = np.array([100000, 700000])
-    f1 = np.poly1d(fp1)
-    fy = f1(fx)
+    if option == 'graph':
+        fp1 = np.polyfit(df['인구수'], df['소계'], 1)
+        fx = np.array([100000, 700000])
+        f1 = np.poly1d(fp1)
+        fy = f1(fx)
 
-    plt.figure(figsize=(12,8))
-    plt.scatter(df['인구수'], df['소계'], c=df['오차'], s=50)
-    plt.plot(fx, fy, ls='dashed', lw=3, color='g')
+        plt.figure(figsize=(12,8))
+        plt.scatter(df['인구수'], df['소계'], c=df['오차'], s=50)
+        plt.plot(fx, fy, ls='dashed', lw=3, color='g')
 
-    for i in range(10): 
-        plt.text(df_sort['인구수'][i]+5000, df_sort['소계'][i]-50,
-                df_sort.index[i], fontsize=15)
+        for i in range(10): 
+            plt.text(df_sort['인구수'][i]+5000, df_sort['소계'][i]-50,
+                    df_sort.index[i], fontsize=15)
 
-    plt.grid(True)
-    plt.title('인구수와 CCTV 댓수의 관계', fontsize=20)
-    plt.xlabel('인구수')
-    plt.ylabel('CCTV')
-    plt.colorbar()
-    img_file = os.path.join(current_app.root_path, 'static/img/cctv.png')
-    plt.savefig(img_file)
-    mtime = int(os.stat(img_file).st_mtime)
+        plt.grid(True)
+        plt.title('인구수와 CCTV 댓수의 관계', fontsize=20)
+        plt.xlabel('인구수')
+        plt.ylabel('CCTV')
+        plt.colorbar()
+        img_file = os.path.join(current_app.root_path, 'static/img/cctv.png')
+        plt.savefig(img_file)
+        mtime = int(os.stat(img_file).st_mtime)
 
-    return render_template('seoul/cctv.html', menu=menu, weather=get_weather_main(), 
-                            mtime=mtime)
+        return render_template('seoul/cctv.html', menu=menu, weather=get_weather_main(), 
+                                mtime=mtime)
+
+    else:
+        tbl = []
+        for i in range(25):
+            row =  {'idx':df.index[i], 'number':df['소계'][i], 'inc':df['최근증가율'][i], 
+                    'population':df['인구수'][i], 'ratio':df['cctv비율'][i]}
+            tbl.append(row)
+        return render_template('seoul/cctv_table.html', menu=menu, weather=get_weather_main(), 
+                                tbl=tbl)
