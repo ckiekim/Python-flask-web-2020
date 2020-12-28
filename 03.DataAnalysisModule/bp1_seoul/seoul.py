@@ -2,7 +2,10 @@ from flask import Blueprint, render_template, request, session, g
 from flask import current_app
 from datetime import timedelta
 import os, folium, json
+import numpy as np
 import pandas as pd
+import matplotlib as mpl 
+import matplotlib.pyplot as plt
 from my_util.weather import get_weather
 
 seoul_bp = Blueprint('seoul_bp', __name__)
@@ -137,3 +140,35 @@ def crime(option):
     mtime = int(os.stat(html_file).st_mtime)
     return render_template('seoul/crime.html', menu=menu, weather=get_weather_main(),
                             option=option, option_dict=option_dict, mtime=mtime)
+
+@seoul_bp.route('/cctv/<option>')
+def cctv(option):
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':1, 'co':0, 'cg':0, 'cr':0, 'st':0, 'wc':0}
+    df = pd.read_csv('./static/data/cctv.csv')
+    df.set_index('구별', inplace=True)
+    df_sort = df.sort_values('오차', ascending=False)
+
+    fp1 = np.polyfit(df['인구수'], df['소계'], 1)
+    fx = np.array([100000, 700000])
+    f1 = np.poly1d(fp1)
+    fy = f1(fx)
+
+    plt.figure(figsize=(12,8))
+    plt.scatter(df['인구수'], df['소계'], c=df['오차'], s=50)
+    plt.plot(fx, fy, ls='dashed', lw=3, color='g')
+
+    for i in range(10): 
+        plt.text(df_sort['인구수'][i]+5000, df_sort['소계'][i]-50,
+                df_sort.index[i], fontsize=15)
+
+    plt.grid(True)
+    plt.title('인구수와 CCTV 댓수의 관계', fontsize=20)
+    plt.xlabel('인구수')
+    plt.ylabel('CCTV')
+    plt.colorbar()
+    img_file = os.path.join(current_app.root_path, 'static/img/cctv.png')
+    plt.savefig(img_file)
+    mtime = int(os.stat(img_file).st_mtime)
+
+    return render_template('seoul/cctv.html', menu=menu, weather=get_weather_main(), 
+                            mtime=mtime)
