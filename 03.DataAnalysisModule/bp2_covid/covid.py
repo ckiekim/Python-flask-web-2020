@@ -250,3 +250,8 @@ def seoul_map(option):
 
     return render_template('covid/seoul_map.html', menu=menu, weather=get_weather_main(),
                             mtime=mtime, option_str=option_str)
+
+@covid_bp.route('/seoul_db_update')
+def seoul_db_update():
+    cu.get_new_seoul_data()
+    return redirect(url_for('covid_bp.seoul_seq'))

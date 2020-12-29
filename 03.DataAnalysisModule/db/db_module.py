@@ -121,3 +121,44 @@ def get_seoul_items_by_condition(items, gu, start_date, end_date):
     cur.close()
     conn.close()
     return rows
+
+def get_seoul_last_sid():
+    conn = sqlite3.connect('./db/covid.db')
+    cur = conn.cursor()
+
+    sql = f'select sid from seoul order by sid desc limit 1;'
+    cur.execute(sql)
+    row = cur.fetchone()
+    
+    cur.close()
+    conn.close()
+    return row[0]
+
+def insert_seoul_data(params):
+    conn = sqlite3.connect('./db/covid.db')
+    cur = conn.cursor()
+
+    sql = 'insert into seoul values(?,?,?,?,?,?,?);'
+    cur.execute(sql, params)
+    conn.commit()
+    
+    cur.close()
+    conn.close()
+    return
+
+def insert_seoul_bulk_data(df):
+    conn = sqlite3.connect('./db/covid.db')
+    cur = conn.cursor()
+
+    sql = 'insert into seoul values(?,?,?,?,?,?,?);'
+    for i in df.index:
+        params = [int(df.iloc[i,0])]
+        params.extend(df.iloc[i,1:])
+        cur.execute(sql, params)
+        if i % 100 == 0:
+            conn.commit()
+    conn.commit()
+    
+    cur.close()
+    conn.close()
+    return
