@@ -40,6 +40,13 @@ def music():
     return render_template('crawling/music.html', menu=menu, weather=get_weather(),
                             music_list=music_list)
 
+@crawl_bp.route('/music_jquery')
+def music_jquery():
+    menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':0, 'cr':1, 'st':0, 'wc':0}
+    music_list = cu.genie()
+    return render_template('crawling/music_jquery.html', menu=menu, weather=get_weather(),
+                            music_list=music_list)
+
 @crawl_bp.route('/book')
 def book():
     menu = {'ho':0, 'da':1, 'ml':0, 'se':0, 'co':0, 'cg':0, 'cr':1, 'st':0, 'wc':0}
