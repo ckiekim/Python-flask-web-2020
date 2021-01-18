@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "formatters": {
+        "basic": {
+            "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        }
+    },
+
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "basic",
+            "stream": "ext://sys.stdout"
+        },
+
+        "file_handler": {
+            "class": "logging.FileHandler",
+            "level": "INFO",
+            "formatter": "basic",
+            "filename": "./log/app.log",
+            "encoding": "UTF-8"
+        }
+    },
+
+    "root": {
+        "level": "DEBUG",
+        "handlers": ["console", "file_handler"]
+    }
+}

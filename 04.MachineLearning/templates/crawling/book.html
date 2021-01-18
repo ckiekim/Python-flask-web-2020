@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        th, td {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>베스트셀러(인터파크 추천)</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-sm" style="margin-bottom: 80px;">
+                <tr class="d-flex">
+                    <th class="col-1">순위</th>
+                    <th class="col-1">이미지</th>
+                    <th class="col-4">타이틀</th>
+                    <th class="col-3">저자</th>
+                    <th class="col-2">출판사</th>
+                    <th class="col-1" style="text-align: right;">가격</th>
+                </tr>
+                {% for book in book_list %}
+                    <tr class="d-flex">
+                        <td class="col-1">{{book.rank}}</td>
+                        <td class="col-1">
+                            <img src="{{book.img}}" alt="책표지 이미지" height="48">
+                        </td>
+                        <td class="col-4"><a href="{{book.href}}" target="_blank">{{book.title}}</a></td>
+                        <td class="col-3">{{book.author}}</td>
+                        <td class="col-2">{{book.company}}</td>
+                        <td class="col-1" style="text-align: right;">{{book.price}}</td>
+                    </tr>
+                {% endfor %}
+            </table>            
+        </div>
+    </div>
+{% endblock %}

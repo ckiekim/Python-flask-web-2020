@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>서울 코로나-19 현황</strong><small> - {{option_str}}</small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <button class="btn btn-primary mb-3" 
+                    onclick="location.href='/covid/seoul_map/ratio'">천명당 확진자 수</button>
+            <button class="btn btn-primary ml-5 mb-3" 
+                    onclick="location.href='/covid/seoul_map/cum'">누적 확진자 수</button>
+        </div>
+        <div class="w-90 ml-5">
+            <iframe src="{{url_for('static', filename='img/seoul_corona.html', q=mtime)}}" frameborder="1" width="800" height="500"></iframe>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}호서 빅데이터{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='fontawesome-free-5.15.1-web/css/all.min.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+    {% block additional_head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" style="margin-left:50px;margin-right:100px;" href="#">
+            <img src="{{url_for('static', filename='img/hoseo.png')}}" alt="Logo" style="height:45px;">
+        </a>
+
+        <!-- Links -->
+        <ul class="nav nav-pills mr-auto">
+            <li class="nav-item mr-4">
+                <a class="nav-link {% if menu.ho %}active{% endif %}" 
+                   href="{% if menu.ho %}#{% else %}/{% endif %}">
+                    <i class="fa fa-home"></i> Home
+                </a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link {% if menu.da %}active{% endif %}" href="#">
+                    <i class="fas fa-chart-line"></i> 데이터 분석
+                </a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link {% if menu.ml %}active{% endif %}" href="#">
+                    <i class="fas fa-brain"></i> 머신 러닝
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+            </li>
+        </ul>
+        <div class="navbar-text" id="weather">
+            {% block weather %}{% endblock %}
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-2">
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.se %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">서울특별시</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/seoul/park">공원 현황</a>
+                            <a class="dropdown-item" href="/seoul/park_gu/area">공원 비교</a>
+                            <a class="dropdown-item" href="/seoul/crime/crime">범죄</a>
+                            <a class="dropdown-item" href="/seoul/cctv/graph">CCTV</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.co %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">코로나-19</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/covid/region">지역별</a>
+                            <a class="dropdown-item" href="/covid/region_seq">지역별 추이</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/covid/agender">연령별/성별</a>
+                            <a class="dropdown-item" href="/covid/age_seq">연령별 추이</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item disabled" href="#">서울시 구별</a>
+                            <a class="dropdown-item ml-2" href="/covid/seoul_seq">- 추이</a>
+                            <a class="dropdown-item ml-2" href="/covid/seoul_comp">- 비교</a>
+                            <a class="dropdown-item ml-2" href="/covid/seoul_map/ratio">- 지도</a>
+                            <a class="dropdown-item ml-2" href="/covid/seoul_db_update">- DB 갱신</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.cg %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">카토그램</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/cartogram/pop/crisis_area">인구소멸위기</a>
+                            <a class="dropdown-item" href="/cartogram/coffee">커피지수</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.cr %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">크롤링</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/crawling/food">맛집(식신)</a>
+                            <a class="dropdown-item" href="/crawling/music">음악(지니)-BS</a>
+                            <a class="dropdown-item" href="/crawling/music_jquery">음악(지니)-DataTables</a>
+                            <a class="dropdown-item" href="/crawling/book">도서(인터파크)</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.wc %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">워드 클라우드</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/wordcloud/text">텍스트 파일</a>
+                            <a class="dropdown-item" href="/wordcloud/sports_news">스포츠 뉴스</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.cf %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">분류</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">타이타닉</a>
+                            <a class="dropdown-item" href="#">피마인디언</a>
+                            <a class="dropdown-item" href="/classification/cancer">유방암</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">아이리스</a>
+                            <a class="dropdown-item" href="#">와인</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.ac %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">고급 분류</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">IMDB 영화평</a>
+                            <a class="dropdown-item" href="#">네이버 영화평</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">20 뉴스그룹</a>
+                            <a class="dropdown-item" href="#">MNIST 손글씨</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.re %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">회귀</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">당뇨병 BMI</a>
+                            <a class="dropdown-item" href="#">아이리스 피처</a>
+                            <a class="dropdown-item" href="#">보스톤 집값</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/regression/stock">주가 예측</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item">
+                        <a class="nav-link {% if menu.cu %}active{% endif %}" 
+                           href="{% if menu.cu %}#{% else %}#{% endif %}">군집화/PCA</a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                </ul>
+            </div>
+            <div class="col-10">
+                <h3>{% block subtitle %}{% endblock %}</h3>
+                <hr>
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>  
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center fixed-bottom">
+        <span class="navbar-text">
+            Copyright &copy; 2020 Hoseo Institute of Big Data
+        </span>
+    </nav>
+    {% block additional_body %}
+    {% endblock %}
+</body>
+</html>

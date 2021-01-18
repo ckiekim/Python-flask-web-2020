@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <small>서울 공원현황 -</small> <strong>{{park_result.name}}</strong>
+{% endblock %}
+{% block content %}
+    <table class="table table-condensed mx-5">
+        <tr class="d-flex">
+            <td class="col-1">이름</td>
+            <td class="col-8">{{park_result.name}}</td>
+            <td rowspan="3" class="col-3">
+                <button class="btn btn-primary btn-sm ml-5"
+                        onclick="location.href='/seoul/park'">재실행</button>
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-1">면적</td>
+            <td class="col-8">{{'{:,}'.format(park_result.area)}} m<sup>2</sup></td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-1">주소</td>
+            <td class="col-8">{{park_result.addr}}</td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-1">개요</td>
+            <td class="col-11" colspan="2">{{park_result.desc}}</td>
+        </tr>
+    </table>
+    <div class="w-90 ml-5">
+        <iframe src="{{url_for('static', filename='img/park_res.html', q=mtime)}}" frameborder="1" width="800" height="500"></iframe>
+    </div>
+{% endblock %}

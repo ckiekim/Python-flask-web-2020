@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        th, td {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <small>맛집(식신 추천) - </small><strong>{{place}}</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <form action="/crawling/food" method="post">
+                <div class="form-group">
+                    <label class="control-label mr-2">장소:</label>
+                    <input type="text" name="place" id="place">
+                    <button class="btn btn-success btn-sm ml-2" id="submit" type="submit">검색</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-12">
+            <table class="table table-sm" style="margin-bottom: 80px;">
+                <tr class="d-flex">
+                    <th class="col-2">맛집</th>
+                    <th class="col-1">이미지</th>
+                    <th class="col-3">특징</th>
+                    <th class="col-2">전화번호</th>
+                    <th class="col-4">주소</th>
+                </tr>
+                {% for rest in rest_list %}
+                    <tr class="d-flex">
+                        <td class="col-2"><a href="{{rest.href}}" target="_blank">{{rest.store}}</a></td>
+                        <td class="col-1">
+                            <img src="{{rest.img}}?w=60&h=48&c=Y" alt="음식 이미지" width="60" height="48">
+                        </td>
+                        <td class="col-3">{{rest.feature}}</td>
+                        <td class="col-2">{{rest.tel}}</td>
+                        <td class="col-4">{{rest.addr}}</td>
+                    </tr>
+                {% endfor %}
+            </table>            
+        </div>
+    </div>
+{% endblock %}

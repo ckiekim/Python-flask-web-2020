@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/jquery-ui.min.css')}}">
+    <style>
+        /* Make the image fully responsive */
+        td img {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>코로나-19 연령별 추이</strong><small> - {{age_str}}</small>
+{% endblock %}
+{% block content %}
+    <form action="/covid/age_seq" method="POST">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <img src="{{url_for('static', filename='img/covid_age_seq.png', q=mtime)}}"
+                            width="600" alt="코로나-19 연령별 추이 이미지">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    <div class="form-group mr-3">
+                        <label class="control-label mr-2">시작일:</label>
+                        <input type="text" name="startDate" id="datepicker1" placeholder="{{start_date}}">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label class="control-label mr-2">종료일:</label>
+                        <input type="text" name="endDate" id="datepicker2" placeholder="{{end_date}}">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    {% for age in age_list %}
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="age{{loop.index}}">
+                            <input type="checkbox" class="form-check-input" id="age{{loop.index}}" name="age" value="{{age}}">{{age}}
+                        </label>
+                    </div>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="submit" class="btn btn-primary mt-2">재실행</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
+{% block additional_body %}
+    {% include './inc/two_datepicker.html' %}
+{% endblock %}

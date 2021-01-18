@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <small>서울 공원현황 -</small> <strong>{{park_result.gu}}</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-7">
+            <table class="table table-condensed">
+                <tr>
+                    <th>항목</th><th>{{park_result.gu}}</th><th>평균</th>
+                </tr>
+                <tr>
+                    <td>공원면적</td>
+                    <td>{{'{:,}'.format(park_result.area)}} m<sup>2</sup></td>
+                    <td>{{'{:,}'.format(park_result.m_area)}} m<sup>2</sup></td>
+                </tr>
+                <tr>
+                    <td>공원수</td>
+                    <td>{{park_result.count}}</td>
+                    <td>{{park_result.m_count}}</td>
+                </tr>
+                <tr>
+                    <td>공원면적 비율</td>
+                    <td>{{park_result.area_ratio}} %</td>
+                    <td>{{park_result.m_area_ratio}} %</td>
+                </tr>
+                <tr>
+                    <td>인당 공원면적</td>
+                    <td>{{park_result.per_person}} m<sup>2</sup></td>
+                    <td>{{park_result.m_per_person}} m<sup>2</sup></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-primary ml-5 mt-5" onclick="location.href='/seoul/park'">재실행</button>
+        </div>
+    </div>
+
+    <div class="w-90 ml-5">
+        <iframe src="{{url_for('static', filename='img/park_res.html', q=mtime)}}" frameborder="1" width="800" height="500"></iframe>
+    </div>
+{% endblock %}

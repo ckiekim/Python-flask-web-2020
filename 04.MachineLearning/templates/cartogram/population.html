@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        /* Make the image fully responsive */
+        td img {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <small>시군구별 인구 - </small><strong>{{column_dict[option]}}</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-8">
+            <table>
+                <tr>
+                    <td style="text-align: center;">
+                        <img src="{{url_for('static', filename='img/population.png', q=mtime)}}"
+                                width="600" alt="인구소멸위기지역 이미지">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-primary" style="margin-top: 200px;"
+                    onclick="location.href='/cartogram/pop/crisis_area'">소멸위기지역</button><br>
+            <button class="btn btn-primary mt-3" 
+                    onclick="location.href='/cartogram/pop/crisis_ratio'">소멸비율</button>
+        </div>
+    </div>   
+{% endblock %}

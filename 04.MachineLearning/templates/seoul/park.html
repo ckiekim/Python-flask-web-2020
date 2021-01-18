@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>서울 공원현황</strong> <small>- 공원 위치와 크기</small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <form class="form-inline" action="/seoul/park" method="POST">
+                <input type="radio" class="form-check-input" id="gubun1" name="gubun" value="park" checked>공원명:
+                <select class="custom-select my-2 mx-2" id="name" name="name">
+                    {% for park in park_list %}
+                        <option value="{{park}}" {% if park=='남산도시자연공원' %}selected{% endif %}>{{park}}</option>
+                    {% endfor %}
+                </select>
+                <input type="radio" class="form-check-input ml-3" id="gubun2" name="gubun" value="gu">자치구:
+                <select class="custom-select my-2 mx-2" id="gu" name="gu">
+                    {% for gu in gu_list %}
+                        <option value="{{gu}}">{{gu}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary my-2 ml-5">검색</button>
+            </form>
+        </div>
+        <div class="col-1"></div>
+        <div class="w-90 ml-5">
+            <iframe src="{{url_for('static', filename='img/park.html', q=mtime)}}" frameborder="1" width="800" height="500"></iframe>
+        </div>
+    </div>
+{% endblock %}
+{% block additional_body %}
+    <script>
+        $('#gu').on('input', function() {
+            $('#gubun2')[0].checked = true
+        });
+        $('#name').on('input', function() {
+            $('#gubun1')[0].checked = true
+        });
+    </script>
+{% endblock %}

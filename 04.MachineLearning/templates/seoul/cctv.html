@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        /* Make the image fully responsive */
+        td img {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>서울시 CCTV 현황</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <table>
+                <tr>
+                    <td>
+                        <img src="{{url_for('static', filename='img/cctv.png', q=mtime)}}"
+                                width="600" alt="서울시 CCTV 현황 이미지"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">
+                        <button class="btn btn-primary mr-5"
+                                onclick="location.href='/seoul/cctv/graph'">그래프로 보기</button>
+                        <button class="btn btn-primary"
+                                onclick="location.href='/seoul/cctv/table'">테이블로 보기</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>   
+{% endblock %}

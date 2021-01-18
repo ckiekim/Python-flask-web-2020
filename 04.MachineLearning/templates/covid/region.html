@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/jquery-ui.min.css')}}">
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong">코로나-19 지역별 현황</strong><small> - {{date}}</small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <div class="form-group">
+                <label class="control-label mr-2">날짜:</label>
+                <input type="text" name="dateCustomer" id="datepicker1">
+                <button class="btn btn-success btn-sm ml-2" id="submit" type="button">검색</button>
+                <button class="btn btn-success btn-sm ml-2" 
+                        onclick="location.href='/covid/update_region/{{date}}'">데이터 가져오기</button>
+            </div>
+        </div>
+    </div>
+    <table class="table table-sm">
+        <tr>
+            <th>광역시도</th>
+            <th style="text-align: right;">사망자</th>
+            <th style="text-align: right;">확진자</th>
+            <th style="text-align: right;">전일대비</th>
+            <th style="text-align: right;">격리해제</th>
+            <th style="text-align: right;">격리중</th>
+            <th style="text-align: right;">지역발생</th>
+            <th style="text-align: right;">해외유입</th>
+        </tr>
+        {% for row in rows %}
+            <tr>
+                <td style="text-align: center;">{{row[4]}}</td>
+                <td style="text-align: right;">{{row[2]}}</td>
+                <td style="text-align: right;">{{'{:,}'.format(row[3])}}</td>
+                <td style="text-align: right;">{{'{:,}'.format(row[5])}}</td>
+                <td style="text-align: right;">{{'{:,}'.format(row[6])}}</td>
+                <td style="text-align: right;">{{'{:,}'.format(row[7])}}</td>
+                <td style="text-align: right;">{{'{:,}'.format(row[8])}}</td>
+                <td style="text-align: right;">{{row[9]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+{% block additional_body %}
+    {% include './inc/one_datepicker.html' %}
+    <script>
+        $('#submit').on('click', function(e) {
+            e.preventDefault();
+
+            date = $('#datepicker1').val(); 
+            endpoint = '/covid/region?date=' + date;
+
+            window.location.href = endpoint
+
+            return false;
+        });
+    </script>
+{% endblock %}
