@@ -36,13 +36,17 @@ def cancer():
         scaler = MinMaxScaler()
         scaled_test = scaler.fit_transform(df.iloc[:, :-1])
         test_data = scaled_test[index, :].reshape(1,-1)
+        test_data_dt = df.iloc[index, :-1].values.reshape(1,-1)
         label = df.iloc[index, -1]
         lrc = joblib.load('static/model/cancer_lr.pkl')
         svc = joblib.load('static/model/cancer_sv.pkl')
         dtc = joblib.load('static/model/cancer_dt.pkl')
         pred_lr = lrc.predict(test_data)
         pred_sv = svc.predict(test_data)
-        pred_dt = dtc.predict(test_data)
-        print(label, pred_lr[0], pred_sv[0], pred_dt[0])
-        return render_template('classification/cancer.html', menu=menu, weather=get_weather())
+        pred_dt = dtc.predict(test_data_dt)
+        result = {'index':index, 'label':label,
+                  'pred_lr':pred_lr[0], 'pred_sv':pred_sv[0], 'pred_dt':pred_dt[0]}
+        org = dict(zip(df.columns[:-1], df.iloc[index, :-1]))
+        return render_template('classification/cancer_res.html', menu=menu, 
+                                res=result, org=org, weather=get_weather())
 
