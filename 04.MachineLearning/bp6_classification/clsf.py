@@ -5,7 +5,6 @@ from datetime import datetime, timedelta
 from sklearn.preprocessing import MinMaxScaler
 import os, joblib
 import pandas as pd
-import pandas_datareader as pdr
 from my_util.weather import get_weather
 
 clsf_bp = Blueprint('clsf_bp', __name__)
@@ -36,16 +35,15 @@ def cancer():
         scaler = MinMaxScaler()
         scaled_test = scaler.fit_transform(df.iloc[:, :-1])
         test_data = scaled_test[index, :].reshape(1,-1)
-        test_data_dt = df.iloc[index, :-1].values.reshape(1,-1)
         label = df.iloc[index, -1]
         lrc = joblib.load('static/model/cancer_lr.pkl')
         svc = joblib.load('static/model/cancer_sv.pkl')
-        dtc = joblib.load('static/model/cancer_dt.pkl')
+        rfc = joblib.load('static/model/cancer_rf.pkl')
         pred_lr = lrc.predict(test_data)
         pred_sv = svc.predict(test_data)
-        pred_dt = dtc.predict(test_data_dt)
+        pred_rf = rfc.predict(test_data)
         result = {'index':index, 'label':label,
-                  'pred_lr':pred_lr[0], 'pred_sv':pred_sv[0], 'pred_dt':pred_dt[0]}
+                  'pred_lr':pred_lr[0], 'pred_sv':pred_sv[0], 'pred_rf':pred_rf[0]}
         org = dict(zip(df.columns[:-1], df.iloc[index, :-1]))
         return render_template('classification/cancer_res.html', menu=menu, 
                                 res=result, org=org, weather=get_weather())

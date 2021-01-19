@@ -14,19 +14,27 @@
                 </tr>
                 <tr>
                     <td>레이블(타겟 값)</td>
-                    <td style="text-align: center;"><strong>{{res.label}}</strong></td>
+                    <td style="text-align: center;"><strong>{{res.label}}
+                        {% if res.label %}(양성){% else %}(악성){% endif %}
+                    </strong></td>
                 </tr>
                 <tr>
                     <td>로지스틱 회귀 결과</td>
-                    <td style="text-align: center;"><strong>{{res.pred_lr}}</strong></td>
+                    <td style="text-align: center;"><strong>{{res.pred_lr}}
+                        {% if res.pred_lr %}(양성){% else %}(악성){% endif %}
+                    </strong></td>
                 </tr>
                 <tr>
                     <td>서포트 벡터 머신 분류 결과</td>
-                    <td style="text-align: center;"><strong>{{res.pred_sv}}</strong></td>
+                    <td style="text-align: center;"><strong>{{res.pred_sv}}
+                        {% if res.pred_sv %}(양성){% else %}(악성){% endif %}
+                    </strong></td>
                 </tr>
                 <tr>
-                    <td>결정 트리 분류 결과</td>
-                    <td style="text-align: center;"><strong>{{res.pred_dt}}</strong></td>
+                    <td>랜덤 포레스트 분류 결과</td>
+                    <td style="text-align: center;"><strong>{{res.pred_rf}}
+                        {% if res.pred_rf %}(양성){% else %}(악성){% endif %}
+                    </strong></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;">

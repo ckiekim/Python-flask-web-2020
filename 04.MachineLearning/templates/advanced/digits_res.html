@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>손글씨 이미지 분류 결과</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <table class="table">
+                <tr>
+                    <td>실제 인덱스</td>
+                    {% for i in result.index %}
+                        <td>{{i}}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>이미지</td>
+                    {% for i in result.index %}
+                        <td><img src="{{url_for('static', filename='img/digit'+(loop.index|string)+'.png', q=mtime)}}" width="100" alt="숫자 이미지"></td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>레이블</td>
+                    {% for i in result.label %}
+                        <td>{{i}}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>로지스틱 회귀</td>
+                    {% for i in result.pred_lr %}
+                        <td>{{i}}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>SVM</td>
+                    {% for i in result.pred_sv %}
+                        <td>{{i}}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>랜덤 포레스트</td>
+                    {% for i in result.pred_rf %}
+                        <td>{{i}}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td colspan="6" style="text-align: center;">
+                        <button class="btn btn-primary" 
+                                onclick="location.href='/advanced/digits'">재실행</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-1"></div>
+    </div>
+{% endblock %}
