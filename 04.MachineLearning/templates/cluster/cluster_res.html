@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        td { text-align: center; }
+        /* Make the image fully responsive */
+        td img { width: 100%; }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>군집화</strong><small> - PCA and K-Means Clustering 결과</small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <tr style="background-color: beige;">
+                    <td>군집수(K)</td>
+                    <td><strong>{{k_number}}</strong></td>
+                </tr>
+                <tr>
+                    <td>차원축소(PCA)</td>
+                    <td>K-Means Clustering</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{url_for('static', filename='img/cluster0.png', q=mtime)}}"
+                                width="600" alt="차원축소 이미지">
+                    </td>
+                    <td>
+                        <img src="{{url_for('static', filename='img/cluster1.png', q=mtime)}}"
+                                width="600" alt="군집화 이미지">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button class="btn btn-primary"
+                                onclick="location.href='/cluster/cluster'">재실행</button>
+                    </td>
+                </tr>
+            </table>		
+        </div>
+    </div>
+{% endblock %}
