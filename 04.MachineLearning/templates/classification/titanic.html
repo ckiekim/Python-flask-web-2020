@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block weather %} {{ weather|safe() }} {% endblock %}
 {% block subtitle %}
-    <strong>유방암 이진 분류</strong>
+    <strong>타이타닉 생존자 이진 분류</strong>
 {% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
-            <form action="/classification/cancer" method="post">
+            <form action="/classification/titanic" method="post">
                 <table class="table table-borderless">
                     <tr>
                         <td><label for="index">테스트 데이터셋 인덱스</label></td>
-                        <td><input type="text" class="form-control" id="index" name="index" placeholder="0 ~ 142 사이의 값"></td>
+                        <td><input type="text" class="form-control" id="index" name="index" placeholder="0 ~ 222 사이의 값"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center;">

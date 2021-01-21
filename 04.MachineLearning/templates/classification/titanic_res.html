@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>타이타닉 생존자 이진 분류 결과</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table table-striped">
+                <tr>
+                    <td>테스트 데이터셋 인덱스</td>
+                    <td style="text-align: center;">{{res.index}}</td>
+                </tr>
+                <tr>
+                    <td>레이블(타겟 값)</td>
+                    <td style="text-align: center;"><strong>{{res.label}}
+                        {% if res.label %}(생존){% else %}(사망){% endif %}
+                    </strong></td>
+                </tr>
+                <tr>
+                    <td>로지스틱 회귀 결과</td>
+                    <td style="text-align: center;"><strong>{{res.pred_lr}}
+                        {% if res.pred_lr %}(생존){% else %}(사망){% endif %}
+                    </strong></td>
+                </tr>
+                <tr>
+                    <td>서포트 벡터 머신 분류 결과</td>
+                    <td style="text-align: center;"><strong>{{res.pred_sv}}
+                        {% if res.pred_sv %}(생존){% else %}(사망){% endif %}
+                    </strong></td>
+                </tr>
+                <tr>
+                    <td>랜덤 포레스트 분류 결과</td>
+                    <td style="text-align: center;"><strong>{{res.pred_rf}}
+                        {% if res.pred_rf %}(생존){% else %}(사망){% endif %}
+                    </strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button class="btn btn-primary" 
+                                onclick="location.href='/classification/titanic'">재실행</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-3"></div>
+        <div class="col-6">
+            <table class="table table-sm">
+                {% for key, value in org.items() %}
+                    {% if not loop.first and loop.index % 2 == 1 %}
+                    </tr>
+                    {% endif %}
+                    {% if loop.index % 2 == 1 %}
+                    <tr class="d-flex">
+                    {% endif %}
+                        <td class="col-4"><small>{{key}}</small></td>
+                        <td class="col-2"><small>{{value|round(4)}}</small></td>
+                    {% if loop.last %}
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                <tr class="d-flex">
+                    <td colspan="4" class="col-12" style="text-align: right;">
+                        <small>※ Sex: 0-여성, 1-남성</small> 
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <td colspan="4" class="col-12" style="text-align: right;">
+                        <small>※ Embarked: 0-Cherbourg, 1-Null, 2-Queenstown, 3-Southampton</small>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-3"></div>
+    </div>
+{% endblock %}
