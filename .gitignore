@@ -13,6 +13,7 @@ upload/
 chromedriver.exe
 covid.db
 model/
+clus_pca_data/
 
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
