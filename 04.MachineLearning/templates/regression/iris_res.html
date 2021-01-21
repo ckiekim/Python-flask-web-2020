@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        td { text-align: center; }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>아이리스 회귀 결과</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+                <table class="table">
+                    <tr>
+                        <td colspan="2">테스트 데이터셋 인덱스</td>
+                        <td>{{index}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">선형회귀로 값을 구한 Feature</td>
+                        <td>{{feature}}</td>
+                    </tr>
+                    <tr>
+                        <td>Feature</td><td>실제값</td><td>예측값</td>
+                    </tr>
+                    <tr>
+                        <td>Sepal length</td><td>{{org.sl}}</td>
+                        <td>{% if pred.sl %}{{pred.sl}}{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Sepal width</td><td>{{org.sw}}</td>
+                        <td>{% if pred.sw %}{{pred.sw}}{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Petal length</td><td>{{org.pl}}</td>
+                        <td>{% if pred.pl %}{{pred.pl}}{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>Petal width</td><td>{{org.pw}}</td>
+                        <td>{% if pred.pw %}{{pred.pw}}{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td>품종</td><td>{{org.species}}</td><td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center;">
+                            <button class="btn btn-primary"
+                                    onclick="location.href='/regression/iris'">재실행</button>
+                        </td>
+                    </tr>
+                </table>		
+        </div>
+        <div class="col-2"></div>
+    </div>
+{% endblock %}
