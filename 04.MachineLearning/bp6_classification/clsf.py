@@ -33,15 +33,15 @@ def titanic():
         index = int(request.form['index'])
         df = pd.read_csv('static/data/titanic_test.csv')
         scaler = joblib.load('static/model/titanic_scaler.pkl')
-        data = df.iloc[index, 1:].values.reshape(1,-1)
-        test_data = scaler.transform(data)
+        test_data = df.iloc[index, :-1].values.reshape(1,-1)
+        test_scaled = scaler.transform(test_data)
         label = df.iloc[index, 0]
         lrc = joblib.load('static/model/titanic_lr.pkl')
         svc = joblib.load('static/model/titanic_sv.pkl')
         rfc = joblib.load('static/model/titanic_rf.pkl')
-        pred_lr = lrc.predict(test_data)
-        pred_sv = svc.predict(test_data)
-        pred_rf = rfc.predict(test_data)
+        pred_lr = lrc.predict(test_scaled)
+        pred_sv = svc.predict(test_scaled)
+        pred_rf = rfc.predict(test_scaled)
         result = {'index':index, 'label':label,
                   'pred_lr':pred_lr[0], 'pred_sv':pred_sv[0], 'pred_rf':pred_rf[0]}
 
@@ -68,15 +68,15 @@ def pima():
         index = int(request.form['index'])
         df = pd.read_csv('static/data/pima_test.csv')
         scaler = joblib.load('static/model/pima_scaler.pkl')
-        data = df.iloc[index, :-1].values.reshape(1,-1)
-        test_data = scaler.transform(data)
+        test_data = df.iloc[index, :-1].values.reshape(1,-1)
+        test_scaled = scaler.transform(test_data)
         label = df.iloc[index, -1]
         lrc = joblib.load('static/model/pima_lr.pkl')
         svc = joblib.load('static/model/pima_sv.pkl')
         rfc = joblib.load('static/model/pima_rf.pkl')
-        pred_lr = lrc.predict(test_data)
-        pred_sv = svc.predict(test_data)
-        pred_rf = rfc.predict(test_data)
+        pred_lr = lrc.predict(test_scaled)
+        pred_sv = svc.predict(test_scaled)
+        pred_rf = rfc.predict(test_scaled)
         result = {'index':index, 'label':label,
                   'pred_lr':pred_lr[0], 'pred_sv':pred_sv[0], 'pred_rf':pred_rf[0]}
         org = dict(zip(df.columns[:-1], df.iloc[index, :-1]))
@@ -94,15 +94,16 @@ def cancer():
         index = int(request.form['index'])
         df = pd.read_csv('static/data/cancer_test.csv')
         scaler = joblib.load('static/model/cancer_scaler.pkl')
-        data = df.iloc[index, :-1].values.reshape(1,-1)
-        test_data = scaler.transform(data)
+        test_data = df.iloc[index, :-1].values.reshape(1,-1)
+        test_scaled = scaler.transform(test_data)
+
         label = df.iloc[index, -1]
         lrc = joblib.load('static/model/cancer_lr.pkl')
         svc = joblib.load('static/model/cancer_sv.pkl')
         rfc = joblib.load('static/model/cancer_rf.pkl')
-        pred_lr = lrc.predict(test_data)
-        pred_sv = svc.predict(test_data)
-        pred_rf = rfc.predict(test_data)
+        pred_lr = lrc.predict(test_scaled)
+        pred_sv = svc.predict(test_scaled)
+        pred_rf = rfc.predict(test_scaled)
         result = {'index':index, 'label':label,
                   'pred_lr':pred_lr[0], 'pred_sv':pred_sv[0], 'pred_rf':pred_rf[0]}
         org = dict(zip(df.columns[:-1], df.iloc[index, :-1]))
