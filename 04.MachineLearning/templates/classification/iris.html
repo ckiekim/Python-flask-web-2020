@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>아이리스 분류</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <form action="/classification/iris" method="post">
+                <table class="table table-borderless">
+                    <tr>
+                        <td><label for="index">테스트 데이터셋 인덱스</label></td>
+                        <td><input type="text" class="form-control" id="index" name="index" placeholder="0 ~ 37 사이의 값"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="submit" class="btn btn-primary mr-2">실행</button>
+                            <button type="reset" class="btn btn-secondary">취소</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+{% endblock %}
