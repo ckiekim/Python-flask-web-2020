@@ -8,7 +8,7 @@
 {% endblock %}
 {% block weather %} {{ weather|safe() }} {% endblock %}
 {% block subtitle %}
-    <strong>Toy 손글씨 이미지 분류 결과</strong>
+    <strong>MNIST 손글씨 이미지 분류 결과</strong>
 {% endblock %}
 {% block content %}
     <div class="row">
@@ -16,15 +16,9 @@
         <div class="col-10">
             <table class="table">
                 <tr>
-                    <td>실제 인덱스</td>
-                    {% for i in result.index %}
-                        <td>{{i}}</td>
-                    {% endfor %}
-                </tr>
-                <tr>
                     <td>이미지</td>
                     {% for i in result.index %}
-                        <td><img src="{{url_for('static', filename='img/digit'+(loop.index|string)+'.png', q=mtime)}}" width="100" alt="숫자 이미지"></td>
+                        <td><img src="{{url_for('static', filename='img/mnist'+(loop.index|string)+'.png', q=mtime)}}" width="200" alt="숫자 이미지"></td>
                     {% endfor %}
                 </tr>
                 <tr>
@@ -33,28 +27,16 @@
                         <td>{{i}}</td>
                     {% endfor %}
                 </tr>
-                <tr>
-                    <td>로지스틱 회귀</td>
-                    {% for i in result.pred_lr %}
-                        <td>{{i}}</td>
-                    {% endfor %}
-                </tr>
-                <tr>
+                <tr style="background-color: beige;">
                     <td>SVM</td>
                     {% for i in result.pred_sv %}
                         <td>{{i}}</td>
                     {% endfor %}
                 </tr>
                 <tr>
-                    <td>랜덤 포레스트</td>
-                    {% for i in result.pred_rf %}
-                        <td>{{i}}</td>
-                    {% endfor %}
-                </tr>
-                <tr>
-                    <td colspan="6" style="text-align: center;">
+                    <td colspan="4" style="text-align: center;">
                         <button class="btn btn-primary" 
-                                onclick="location.href='/advanced/digits'">재실행</button>
+                                onclick="location.href='/advanced/mnist'">재실행</button>
                     </td>
                 </tr>
             </table>

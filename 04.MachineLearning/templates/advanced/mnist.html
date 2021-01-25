@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block weather %} {{ weather|safe() }} {% endblock %}
 {% block subtitle %}
-    <strong>Toy 손글씨 이미지 분류</strong>
+    <strong>MNIST 손글씨 이미지 분류</strong>
 {% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
-            <form action="/advanced/digits" method="post">
+            <form action="/advanced/mnist" method="post">
                 <table class="table table-borderless">
                     <tr>
                         <td><label for="index">테스트 데이터셋 시작 인덱스</label></td>
-                        <td><input type="text" class="form-control" id="index" name="index" placeholder="0 ~ 445 사이의 값"></td>
+                        <td><input type="text" class="form-control" id="index" name="index" placeholder="0 ~ 10,487 사이의 값"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center;">
