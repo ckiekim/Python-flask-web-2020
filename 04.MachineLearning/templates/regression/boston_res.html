@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>보스톤 집값 회귀 결과</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table">
+                <tr class="d-flex">
+                    <td class="col-4">테스트 데이터셋 인덱스</td>
+                    <td class="col-8" style="text-align: center;">{{res.index}}</td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-4">선택된 Feature</td>
+                    <td class="col-8" style="text-align: center;">
+                        {% for feature in res.feature %}
+                            {{feature}}{% if not loop.last %},{% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-4">타겟 값</td>
+                    <td class="col-8" style="text-align: center;"><strong>{{res.y}}</strong></td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-4">회귀 결과</td>
+                    <td class="col-8" style="text-align: center;"><strong>{{res.pred}}</strong></td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="col-12" colspan="2" style="text-align: center;">
+                        <button class="btn btn-primary" 
+                                onclick="location.href='/regression/boston'">재실행</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table table-sm">
+                {% for key, value in org.items() %}
+                    {% if not loop.first and loop.index % 2 == 1 %}
+                    </tr>
+                    {% endif %}
+                    {% if loop.index % 2 == 1 %}
+                    <tr class="d-flex">
+                    {% endif %}
+                        <td class="col-4"><small>{{key}}</small></td>
+                        <td class="col-2"><small>{{value|round(4)}}</small></td>
+                    {% if loop.last %}
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+{% endblock %}

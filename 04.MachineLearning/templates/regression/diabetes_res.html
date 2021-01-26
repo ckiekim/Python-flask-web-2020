@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        td { text-align: center; }
+        /* Make the image fully responsive */
+        td img { width: 100%; }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>당뇨병 단일 회귀 결과</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+                <table class="table">
+                    <tr>
+                        <td>테스트 데이터셋 인덱스</td>
+                        <td>{{res.index}}</td>
+                    </tr>
+                    <tr>
+                        <td>선택한 Feature</td>
+                        <td>{{res.feature}}</td>
+                    </tr>
+                    <tr>
+                        <td>실제값</td>
+                        <td>{{res.y}}</td>
+                    </tr>
+                    <tr>
+                        <td>예측값</td>
+                        <td>{{res.pred}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <img src="{{url_for('static', filename='img/diabetes.png', q=mtime)}}"
+                                width="600" alt="선형회귀 이미지">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button class="btn btn-primary"
+                                    onclick="location.href='/regression/diabetes'">재실행</button>
+                        </td>
+                    </tr>
+                </table>		
+        </div>
+        <div class="col-2"></div>
+    </div>
+{% endblock %}
