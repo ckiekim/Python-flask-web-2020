@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        td { text-align: center; }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>20 뉴스그룹 분류 결과</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <table class="table table-striped">
+                <tr>
+                    <td>테스트 데이터셋 인덱스</td>
+                    <td>{{res.index}}</td>
+                </tr>
+                <tr>
+                    <td>레이블(타겟 값)</td>
+                    <td><strong>{{res.label}}</strong></td>
+                </tr>
+                <tr>
+                    <td>CountVectorizer + 로지스틱 회귀 분류 결과</td>
+                    <td><strong>{{res.pred_c_lr}}</strong></td>
+                </tr>
+                <tr>
+                    <td>TfidfVectorizer + 로지스틱 회귀 분류 결과</td>
+                    <td><strong>{{res.pred_t_lr}}</strong></td>
+                </tr>
+                <tr>
+                    <td>TfidfVectorizer + 서포트 벡터 머신 분류 결과</td>
+                    <td><strong>{{res.pred_t_sv}}</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="btn btn-primary" 
+                                onclick="location.href='/advanced/news'">재실행</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-1"></div>
+        <div class="col-10">
+            <small>{{news}}</small>
+        </div>
+        <div class="col-1"></div>
+    </div>
+{% endblock %}

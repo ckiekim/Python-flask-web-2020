@@ -3,12 +3,16 @@ from flask import current_app
 from fbprophet import Prophet
 from datetime import datetime, timedelta
 from sklearn.datasets import load_digits
+from sklearn.pipeline import Pipeline
 import os, joblib
 import pandas as pd
 import matplotlib.pyplot as plt
 from my_util.weather import get_weather
 
 aclsf_bp = Blueprint('aclsf_bp', __name__)
+menu = {'ho':0, 'da':0, 'ml':1, 
+        'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0,
+        'cf':0, 'ac':1, 're':0, 'cu':0}
 
 def get_weather_main():
     ''' weather = None
@@ -25,9 +29,6 @@ def get_weather_main():
 
 @aclsf_bp.route('/digits', methods=['GET', 'POST'])
 def digits():
-    menu = {'ho':0, 'da':0, 'ml':10, 
-            'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-            'cf':0, 'ac':1, 're':0, 'cu':0}
     if request.method == 'GET':
         return render_template('advanced/digits.html', menu=menu, weather=get_weather())
     else:
@@ -67,9 +68,6 @@ def digits():
 
 @aclsf_bp.route('/mnist', methods=['GET', 'POST'])
 def mnist():
-    menu = {'ho':0, 'da':0, 'ml':10, 
-            'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-            'cf':0, 'ac':1, 're':0, 'cu':0}
     if request.method == 'GET':
         return render_template('advanced/mnist.html', menu=menu, weather=get_weather())
     else:
@@ -99,18 +97,36 @@ def mnist():
         return render_template('advanced/mnist_res.html', menu=menu, mtime=mtime,
                                 result=result_dict, weather=get_weather())
 
+@aclsf_bp.route('/imdb', methods=['GET', 'POST'])
+def imdb():
+    if request.method == 'GET':
+        return render_template('advanced/imdb.html', menu=menu, weather=get_weather())
+    else:
+        pass
+
+
+@aclsf_bp.route('/naver', methods=['GET', 'POST'])
+def naver():
+    if request.method == 'GET':
+        pass
+    else:
+        pass
+
+@aclsf_bp.before_app_first_request
+def before_app_first_request():
+    global news_count_lr, news_tfidf_lr, news_tfidf_sv
+    news_count_lr = joblib.load('static/model/news_count_lr.pkl')
+    news_tfidf_lr = joblib.load('static/model/news_tfidf_lr.pkl')
+    news_tfidf_sv = joblib.load('static/model/news_tfidf_sv.pkl')
+
 @aclsf_bp.route('/news', methods=['GET', 'POST'])
 def news():
-    menu = {'ho':0, 'da':0, 'ml':10, 
-            'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-            'cf':0, 'ac':1, 're':0, 'cu':0}
-    target_names = {
-        0:'alt.atheism',  1:'comp.graphics',  2:'comp.os.ms-windows.misc',
-        3:'comp.sys.ibm.pc.hardware',  4:'comp.sys.mac.hardware', 5:'comp.windows.x',
-        6:'misc.forsale', 7:'rec.autos', 8:'rec.motorcycles', 9:'rec.sport.baseball',
-        10:'rec.sport.hockey', 11:'sci.crypt', 12:'sci.electronics', 13:'sci.med',
-        14:'sci.space', 15:'soc.religion.christian', 16:'talk.politics.guns',
-        17:'talk.politics.mideast', 18:'talk.politics.misc', 19:'talk.religion.misc'}
+    target_names = ['alt.atheism', 'comp.graphics', 'comp.os.ms-windows.misc',
+                    'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware', 'comp.windows.x',
+                    'misc.forsale', 'rec.autos', 'rec.motorcycles', 'rec.sport.baseball',
+                    'rec.sport.hockey', 'sci.crypt', 'sci.electronics', 'sci.med',
+                    'sci.space', 'soc.religion.christian', 'talk.politics.guns',
+                    'talk.politics.mideast', 'talk.politics.misc', 'talk.religion.misc']
     if request.method == 'GET':
         return render_template('advanced/news.html', menu=menu, weather=get_weather())
     else:
@@ -120,14 +136,9 @@ def news():
         test_data = []
         test_data.append(df.data[index])
 
-        pipe_count_lr = joblib.load('static/model/news_count_lr.pkl')
-        pipe_tfidf_lr = joblib.load('static/model/news_tfidf_lr.pkl')
-        pipe_tfidf_sv = joblib.load('static/model/news_tfidf_sv.pkl')
-
-        pred_c_lr = pipe_count_lr.predict(test_data)
-        pred_t_lr = pipe_tfidf_lr.predict(test_data)
-        pred_t_sv = pipe_tfidf_sv.predict(test_data)
-
+        pred_c_lr = news_count_lr.predict(test_data)
+        pred_t_lr = news_tfidf_lr.predict(test_data)
+        pred_t_sv = news_tfidf_sv.predict(test_data)
         result_dict = {'index':index, 'label':label, 
                        'pred_c_lr':f'{pred_c_lr[0]} ({target_names[pred_c_lr[0]]})',
                        'pred_t_lr':f'{pred_t_lr[0]} ({target_names[pred_t_lr[0]]})',
