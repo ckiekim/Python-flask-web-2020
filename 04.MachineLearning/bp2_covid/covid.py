@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session, g
 from flask import current_app, redirect, url_for
-from datetime import datetime, timedelta
+from datetime import date, timedelta
 import os, folium, json
 import pandas as pd
 import matplotlib as mpl 
@@ -29,7 +29,7 @@ def get_weather_main():
 
 @covid_bp.route('/region')
 def region():
-    date = request.args.get('date', datetime.now().strftime('%Y-%m-%d'))
+    date = request.args.get('date', date.today().strftime('%Y-%m-%d'))
     rows = dm.get_region_daily(date)
 
     return render_template('covid/region.html', menu=menu, weather=get_weather_main(),
@@ -45,7 +45,7 @@ def update_region(date):
 
 @covid_bp.route('/agender')
 def agender():
-    date = request.args.get('date', datetime.now().strftime('%Y-%m-%d'))
+    date = request.args.get('date', date.today().strftime('%Y-%m-%d'))
     rows = dm.get_agender_daily(date)
 
     return render_template('covid/agender.html', menu=menu, weather=get_weather_main(),
@@ -66,7 +66,7 @@ def region_seq():
         mpl.rc('axes', unicode_minus=False)
         
         start_date = request.args.get('startDate', '2020-01-01')
-        end_date = request.args.get('endDate', datetime.now().strftime('%Y-%m-%d'))
+        end_date = request.args.get('endDate', date.today().strftime('%Y-%m-%d'))
         rows = dm.get_region_items_by_gubun_with_date('stdDay, incDec', '합계', start_date, end_date)
         cdf = pd.DataFrame(rows, columns=['기준일','전국'])
         metro_list = ['서울', '부산', '대구', '인천', '대전', '광주', '울산', '세종', 
@@ -98,7 +98,7 @@ def region_seq():
 
     else:
         start_date = request.form['startDate'] if request.form['startDate'] else '2020-01-01'
-        end_date = request.form['endDate'] if request.form['endDate'] else datetime.now().strftime('%Y-%m-%d')
+        end_date = request.form['endDate'] if request.form['endDate'] else date.today().strftime('%Y-%m-%d')
         region_list = request.form.getlist('metro') if request.form.getlist('metro') else ['전국','서울','경기','대구']
         region_str = ' '.join(region for region in region_list)
         return redirect(url_for('covid_bp.region_seq')+f'?region={region_str}&startDate={start_date}&endDate={end_date}')
@@ -110,7 +110,7 @@ def age_seq():
         mpl.rc('axes', unicode_minus=False)
 
         start_date = request.args.get('startDate', '2020-01-01')
-        end_date = request.args.get('endDate', datetime.now().strftime('%Y-%m-%d'))
+        end_date = request.args.get('endDate', date.today().strftime('%Y-%m-%d'))
         rows = dm.get_agender_items_by_gubun_with_date('stdDay, confCase', '0-9', start_date, end_date)
         adf = pd.DataFrame(rows, columns=['기준일','0-9'])
         adf = cu.get_daily(adf, '0-9', '0-9세')
@@ -144,7 +144,7 @@ def age_seq():
 
     else:
         start_date = request.form['startDate'] if request.form['startDate'] else '2020-01-01'
-        end_date = request.form['endDate'] if request.form['endDate'] else datetime.now().strftime('%Y-%m-%d')
+        end_date = request.form['endDate'] if request.form['endDate'] else date.today().strftime('%Y-%m-%d')
         age_list = request.form.getlist('age') if request.form.getlist('age') else ['20-29세', '50-59세', '60-69세']
         age_str = ' '.join(age for age in age_list)
         return redirect(url_for('covid_bp.age_seq')+f'?age={age_str}&startDate={start_date}&endDate={end_date}')
@@ -156,7 +156,7 @@ def seoul_seq():
         mpl.rc('axes', unicode_minus=False)
 
         start_date = request.args.get('startDate', '2020-01-01')
-        end_date = request.args.get('endDate', datetime.now().strftime('%Y-%m-%d'))
+        end_date = request.args.get('endDate', date.today().strftime('%Y-%m-%d'))
         cdf_raw, gu_list = cu.make_corona_raw_df(start_date, end_date)
 
         gu_str = request.args.get('gu', '강서구 양천구 영등포구')
@@ -177,7 +177,7 @@ def seoul_seq():
 
     else:
         start_date = request.form['startDate'] if request.form['startDate'] else '2020-01-01'
-        end_date = request.form['endDate'] if request.form['endDate'] else datetime.now().strftime('%Y-%m-%d')
+        end_date = request.form['endDate'] if request.form['endDate'] else date.today().strftime('%Y-%m-%d')
         selected_gu = request.form.getlist('gu') if request.form.getlist('gu') else ['강서구', '양천구', '영등포구']
         gu_str = ' '.join(gu for gu in selected_gu)
         current_app.logger.debug(f'{start_date} ~ {end_date}, {gu_str}')
@@ -189,10 +189,16 @@ def seoul_comp():
         mpl.rc('font', family='Malgun Gothic')
         mpl.rc('axes', unicode_minus=False)
 
-        start_date = request.args.get('startDate', '2020-01-01')
-        end_date = request.args.get('endDate', datetime.now().strftime('%Y-%m-%d'))
+        # 최근 1년치 데이터만 보여주기 위해 수정
+        today = date.today()
+        last_month = 1 if today.month == 12 else today.month+1
+        last_date = date(today.year-1, last_month, 1)
+
+        start_date = request.args.get('startDate', last_date.strftime('%Y-%m-%d'))
+        end_date = request.args.get('endDate', today.strftime('%Y-%m-%d'))
         cdf_raw, _ = cu.make_corona_raw_df(start_date, end_date)
-        cdf = cu.make_corona_df(cdf_raw)
+        cdf = cu.make_corona_df(cdf_raw, last_month)
+        ###################
 
         month = request.args.get('month', 'ratio')
         img_file = os.path.join(current_app.root_path, 'static/img/seoul_comp.png')
@@ -207,7 +213,11 @@ def seoul_comp():
         plt.ylabel('')
         plt.savefig(img_file)
         mtime = int(os.stat(img_file).st_mtime)
-        month_list = ['누적','12월','11월','10월','9월','8월','7월','6월','5월','4월','3월','2월','1월']
+        month_list = ['누적']
+        # 최근 1년치 데이터만 보여주기 위해 수정
+        for i in range(12):
+            new_month = (today.month + 12 - i) % 12
+            month_list.append(f'{new_month if new_month else 12}월')
 
         return render_template('covid/seoul_comp.html', menu=menu, weather=get_weather_main(),
                                 mtime=mtime, month=month, month_list=month_list)
@@ -224,10 +234,16 @@ def seoul_comp():
 def seoul_map(option):
     geo_data = json.load(open('./static/data/skorea_municipalities_geo_simple.json', encoding='utf8'))
     
-    start_date = request.args.get('startDate', '2020-01-01')
-    end_date = request.args.get('endDate', datetime.now().strftime('%Y-%m-%d'))
+    # 최근 1년치 데이터만 보여주기 위해 수정
+    today = date.today()
+    last_month = 1 if today.month == 12 else today.month+1
+    last_date = date(today.year-1, last_month, 1)
+
+    start_date = request.args.get('startDate', last_date.strftime('%Y-%m-%d'))
+    end_date = request.args.get('endDate', today.strftime('%Y-%m-%d'))
     cdf_raw, _ = cu.make_corona_raw_df(start_date, end_date)
-    cdf = cu.make_corona_df(cdf_raw)
+    cdf = cu.make_corona_df(cdf_raw, last_month)
+    ###################
 
     html_file = os.path.join(current_app.root_path, 'static/img/seoul_corona.html')
     map = folium.Map(location=[37.5502, 126.982], zoom_start=11, tiles='Stamen Toner')
