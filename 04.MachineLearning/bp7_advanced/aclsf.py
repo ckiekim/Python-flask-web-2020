@@ -27,6 +27,17 @@ def get_weather_main():
     weather = get_weather()
     return weather
 
+@aclsf_bp.before_app_first_request
+def before_app_first_request():
+    global imdb_count_lr, imdb_tfidf_lr
+    global news_count_lr, news_tfidf_lr, news_tfidf_sv
+    print('============ Advanced Blueprint before_app_first_request() ==========')
+    imdb_count_lr = joblib.load('static/model/imdb_count_lr.pkl')
+    imdb_tfidf_lr = joblib.load('static/model/imdb_tfidf_lr.pkl')
+    news_count_lr = joblib.load('static/model/news_count_lr.pkl')
+    news_tfidf_lr = joblib.load('static/model/news_tfidf_lr.pkl')
+    news_tfidf_sv = joblib.load('static/model/news_tfidf_sv.pkl')
+
 @aclsf_bp.route('/digits', methods=['GET', 'POST'])
 def digits():
     if request.method == 'GET':
@@ -102,8 +113,21 @@ def imdb():
     if request.method == 'GET':
         return render_template('advanced/imdb.html', menu=menu, weather=get_weather())
     else:
-        pass
+        test_data = []
+        label = '직접 확인'
+        if request.form['option'] == 'index':
+            index = int(request.form['index'])
+            df_test = pd.read_csv('static/data/IMDB_test.csv')
+            test_data.append(df_test.iloc[index, 0])
+            label = '긍정' if df_test.sentiment[index] else '부정'
+        else:
+            test_data.append(request.form['review'])
 
+        pred_cl = '긍정' if imdb_count_lr.predict(test_data)[0] else '부정'
+        pred_tl = '긍정' if imdb_tfidf_lr.predict(test_data)[0] else '부정'
+        result_dict = {'label':label, 'pred_cl':pred_cl, 'pred_tl':pred_tl}
+        return render_template('advanced/imdb_res.html', menu=menu, review=test_data[0],
+                                res=result_dict, weather=get_weather())
 
 @aclsf_bp.route('/naver', methods=['GET', 'POST'])
 def naver():
@@ -111,13 +135,6 @@ def naver():
         pass
     else:
         pass
-
-@aclsf_bp.before_app_first_request
-def before_app_first_request():
-    global news_count_lr, news_tfidf_lr, news_tfidf_sv
-    news_count_lr = joblib.load('static/model/news_count_lr.pkl')
-    news_tfidf_lr = joblib.load('static/model/news_tfidf_lr.pkl')
-    news_tfidf_sv = joblib.load('static/model/news_tfidf_sv.pkl')
 
 @aclsf_bp.route('/news', methods=['GET', 'POST'])
 def news():
