@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session, g
 from flask import current_app, redirect, url_for
-from datetime import date, timedelta
+from datetime import datetime, date, timedelta
 import os, folium, json
 import pandas as pd
 import matplotlib as mpl 
@@ -29,7 +29,7 @@ def get_weather_main():
 
 @covid_bp.route('/region')
 def region():
-    date = request.args.get('date', date.today().strftime('%Y-%m-%d'))
+    date = request.args.get('date', datetime.now().strftime('%Y-%m-%d'))
     rows = dm.get_region_daily(date)
 
     return render_template('covid/region.html', menu=menu, weather=get_weather_main(),
@@ -45,7 +45,7 @@ def update_region(date):
 
 @covid_bp.route('/agender')
 def agender():
-    date = request.args.get('date', date.today().strftime('%Y-%m-%d'))
+    date = request.args.get('date', datetime.now().strftime('%Y-%m-%d'))
     rows = dm.get_agender_daily(date)
 
     return render_template('covid/agender.html', menu=menu, weather=get_weather_main(),
