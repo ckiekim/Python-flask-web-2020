@@ -9,6 +9,9 @@ import matplotlib.pyplot as plt
 from my_util.weather import get_weather
 
 seoul_bp = Blueprint('seoul_bp', __name__)
+menu = {'ho':0, 'da':1, 'ml':0, 
+        'se':1, 'co':0, 'cg':0, 'cr':0, 'wc':0,
+        'cf':0, 'ac':0, 're':0, 'cu':0}
 
 def get_weather_main():
     ''' weather = None
@@ -25,9 +28,6 @@ def get_weather_main():
 
 @seoul_bp.route('/park', methods=['GET', 'POST'])
 def park():
-    menu = {'ho':0, 'da':1, 'ml':0, 
-            'se':1, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-            'cf':0, 'ac':0, 're':0, 'cu':0}
     park_new = pd.read_csv('./static/data/park_info.csv')
     park_gu = pd.read_csv('./static/data/park_gu.csv')
     park_gu.set_index('지역', inplace=True)
@@ -88,9 +88,6 @@ def park():
 
 @seoul_bp.route('/park_gu/<option>')
 def park_gu(option):
-    menu = {'ho':0, 'da':1, 'ml':0, 
-            'se':1, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-            'cf':0, 'ac':0, 're':0, 'cu':0}
     park_new = pd.read_csv('./static/data/park_info.csv')
     park_gu = pd.read_csv('./static/data/park_gu.csv')
     park_gu.set_index('지역', inplace=True)
@@ -116,9 +113,6 @@ def park_gu(option):
 
 @seoul_bp.route('/crime/<option>')
 def crime(option):
-    menu = {'ho':0, 'da':1, 'ml':0, 
-            'se':1, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-            'cf':0, 'ac':0, 're':0, 'cu':0}
     crime = pd.read_csv('./static/data/crime.csv', index_col='구별')
     police = pd.read_csv('./static/data/police.csv')
     geo_str = json.load(open('./static/data/skorea_municipalities_geo_simple.json',
@@ -150,9 +144,6 @@ def crime(option):
 
 @seoul_bp.route('/cctv/<option>')
 def cctv(option):
-    menu = {'ho':0, 'da':1, 'ml':0, 
-            'se':1, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-            'cf':0, 'ac':0, 're':0, 'cu':0}
     df = pd.read_csv('./static/data/cctv.csv')
     df.set_index('구별', inplace=True)
     df_sort = df.sort_values('오차', ascending=False)

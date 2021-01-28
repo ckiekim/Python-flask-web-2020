@@ -8,6 +8,9 @@ from my_util.weather import get_weather
 import my_util.drawKorea as dk
 
 carto_bp = Blueprint('carto_bp', __name__)
+menu = {'ho':0, 'da':1, 'ml':0, 
+        'se':0, 'co':0, 'cg':1, 'cr':0, 'wc':0,
+        'cf':0, 'ac':0, 're':0, 'cu':0}
 
 def get_weather_main():
     ''' weather = None
@@ -24,9 +27,6 @@ def get_weather_main():
 
 @carto_bp.route('/pop/<option>')
 def population(option):
-    menu = {'ho':0, 'da':1, 'ml':0, 
-            'se':0, 'co':0, 'cg':1, 'cr':0, 'wc':0,
-            'cf':0, 'ac':0, 're':0, 'cu':0}
     df_pop = pd.read_csv('./static/data/population.csv')
     column_dict = {'crisis_area':'소멸위기지역', 'crisis_ratio':'소멸비율'}
     color_dict = {'crisis_area':'Reds', 'crisis_ratio':'PuBu'}
@@ -38,9 +38,6 @@ def population(option):
 
 @carto_bp.route('/coffee', methods=['GET', 'POST'])
 def coffee():
-    menu = {'ho':0, 'da':1, 'ml':0, 
-            'se':0, 'co':0, 'cg':1, 'cr':0, 'wc':0,
-            'cf':0, 'ac':0, 're':0, 'cu':0}
     if request.method == 'GET':
         return render_template('cartogram/coffee.html', menu=menu, weather=get_weather_main())
     else:
