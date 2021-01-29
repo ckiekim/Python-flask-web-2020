@@ -43,7 +43,7 @@ def digits():
     if request.method == 'GET':
         return render_template('advanced/digits.html', menu=menu, weather=get_weather())
     else:
-        index = int(request.form['index'])
+        index = int(request.form['index'] or '0')
         index_list = list(range(index, index+5))
         digits = load_digits()
         df = pd.read_csv('static/data/digits_test.csv')
@@ -82,7 +82,7 @@ def mnist():
     if request.method == 'GET':
         return render_template('advanced/mnist.html', menu=menu, weather=get_weather())
     else:
-        index = int(request.form['index'])
+        index = int(request.form['index'] or '0')
         index_list = list(range(index, index+3))
         df = pd.read_csv('static/data/mnist/mnist_test.csv')
 
@@ -116,7 +116,7 @@ def imdb():
         test_data = []
         label = '직접 확인'
         if request.form['option'] == 'index':
-            index = int(request.form['index'])
+            index = int(request.form['index'] or '0')
             df_test = pd.read_csv('static/data/IMDB_test.csv')
             test_data.append(df_test.iloc[index, 0])
             label = '긍정' if df_test.sentiment[index] else '부정'
@@ -147,7 +147,7 @@ def news():
     if request.method == 'GET':
         return render_template('advanced/news.html', menu=menu, weather=get_weather())
     else:
-        index = int(request.form['index'])
+        index = int(request.form['index'] or '0')
         df = pd.read_csv('static/data/news/test.csv')
         label = f'{df.target[index]} ({target_names[df.target[index]]})'
         test_data = []

@@ -13,7 +13,7 @@
                         <td>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="option" value="index" checked><label for="index">테스트 데이터셋 인덱스</label>
+                                    <input type="radio" class="form-check-input" id="option1" name="option" value="index" checked><label for="index">테스트 데이터셋 인덱스</label>
                                 </label>
                             </div>
                         </td>
@@ -23,7 +23,7 @@
                         <td>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="option" value="review"><label for="review">리뷰 입력</label>
+                                    <input type="radio" class="form-check-input" id="option2" name="option" value="review"><label for="review">리뷰 입력</label>
                                 </label>
                             </div>
                         </td>
@@ -41,4 +41,16 @@
             </form>
         </div>
     </div>
+{% endblock %}
+{% block additional_body %}
+    <script>
+        $('#review').on('input', () => {
+            $('#option1')[0].checked = false
+            $('#option2')[0].checked = true
+        });
+        $('#index').on('input', () => {
+            $('#option1')[0].checked = true
+            $('#option2')[0].checked = false
+        });
+    </script>
 {% endblock %}
