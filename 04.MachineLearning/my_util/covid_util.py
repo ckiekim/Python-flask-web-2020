@@ -149,12 +149,12 @@ def get_new_seoul_data():
     resultCode = soup.find('RESULT').find('CODE').get_text()
     if resultCode == 'INFO-000':
         list_total_count = int(soup.find('list_total_count').get_text())
-        current_app.logger.debug(list_total_count)
     else:
         current_app.logger.info(soup.find('RESULT').find('MESSAGE').get_text())
         return
 
     last_sid = dm.get_seoul_last_sid()
+    current_app.logger.debug(f'서울시 건수 - {list_total_count}, DB 보관 - {last_sid}')
     if list_total_count <= last_sid:
         return
     read_count = list_total_count - last_sid
