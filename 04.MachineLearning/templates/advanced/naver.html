@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>네이버 영화평 감성 분석</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-11">
+            <form action="/advanced/naver" method="post">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="option1" name="option" value="index" checked><label for="index">테스트 데이터셋 인덱스</label>
+                                </label>
+                            </div>
+                        </td>
+                        <td><input type="text" class="form-control" id="index" name="index" placeholder="0 ~ 48,994 사이의 값"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" id="option2" name="option" value="review"><label for="review">리뷰 입력</label>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <textarea name="review" id="review" cols="80" rows="5"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="submit" class="btn btn-primary mr-2">실행</button>
+                            <button type="reset" class="btn btn-secondary">취소</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block additional_body %}
+    <script>
+        $('#review').on('input', () => {
+            $('#option1')[0].checked = false
+            $('#option2')[0].checked = true
+        });
+        $('#index').on('input', () => {
+            $('#option1')[0].checked = true
+            $('#option2')[0].checked = false
+        });
+    </script>
+{% endblock %}

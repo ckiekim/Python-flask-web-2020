@@ -19,6 +19,7 @@ clus_pca_data/
 mnist/
 news/
 naver/
+voice/
 
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/

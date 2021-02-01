@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        td { text-align: center; }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>네이버 영화평 감성 분석 결과</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table">
+                <tr>
+                    <td>레이블</td>
+                    <td><strong>{{res.label}}</strong></td>
+                </tr>
+                <tr style="background-color: beige;">
+                    <td>CountVectorizer + 로지스틱 회귀</td>
+                    <td><strong>{{res.pred_cl}}</strong></td>
+                </tr>
+                <tr style="background-color: aliceblue;">
+                    <td>CountVectorizer + 나이브 베이즈</td>
+                    <td><strong>{{res.pred_cn}}</strong></td>
+                </tr>
+                <tr style="background-color: beige">
+                    <td>TfidfVectorizer + 로지스틱 회귀</td>
+                    <td><strong>{{res.pred_tl}}</strong></td>
+                </tr>
+                <tr style="background-color: aliceblue">
+                    <td>TfidfVectorizer + 나이브 베이즈</td>
+                    <td><strong>{{res.pred_tn}}</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button class="btn btn-primary" 
+                                onclick="location.href='/advanced/naver'">재실행</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-1"></div>
+        <div class="col-10"><small>{{review}}</small></div>
+        <div class="col-1"></div>
+    </div>
+{% endblock %}
