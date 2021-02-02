@@ -10,7 +10,7 @@ import my_util.crawl_util as cu
 crawl_bp = Blueprint('crawl_bp', __name__)
 menu = {'ho':0, 'da':1, 'ml':0, 
         'se':0, 'co':0, 'cg':0, 'cr':1, 'wc':0,
-        'cf':0, 'ac':0, 're':0, 'cu':0}
+        'cf':0, 'ac':0, 're':0, 'cu':0, 'nl':0}
 
 def get_weather_main():
     ''' weather = None

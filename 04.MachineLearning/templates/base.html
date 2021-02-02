@@ -154,6 +154,17 @@
                            href="{% if menu.cu %}#{% else %}/cluster/cluster{% endif %}">군집화/PCA</a>
                     </li>
                     <div class="dropdown-divider"></div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.nl %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">자연어</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/nat_lang/translate">번역기</a>
+                            <a class="dropdown-item" href="/nat_lang/tts">텍스트 읽기</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/nat_lang/emotion">외국어 감성분석</a>
+                        </div>
+                    </li>
+                    <div class="dropdown-divider"></div>
                 </ul>
             </div>
             <div class="col-10">

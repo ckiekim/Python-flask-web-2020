@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>번역 결과 ({{lang}})</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <table class="table">
+                <tr class="d-flex">
+                    <td class="col-2">원본 텍스트</td>
+                    <td class="col-10">{{org}}</td>
+                </tr>
+                <tr class="d-flex" style="background-color: beige;">
+                    <td class="col-2">네이버 번역기</td>
+                    <td class="col-10">{{naver}}</td>
+                </tr>
+                <tr class="d-flex" style="background-color: aliceblue;">
+                    <td class="col-2">카카오 번역기</td>
+                    <td class="col-10">{{kakao}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button class="btn btn-primary" 
+                                onclick="location.href='/nat_lang/translate'">재실행</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-1"></div>
+    </div>
+{% endblock %}

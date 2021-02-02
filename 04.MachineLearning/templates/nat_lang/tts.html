@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block additional_head %}
+    <style>
+        td { text-align: center; }
+    </style>
+{% endblock %}
+{% block weather %} {{ weather|safe() }} {% endblock %}
+{% block subtitle %}
+    <strong>텍스트 읽기</strong>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <form action="/nat_lang/tts" method="post">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>텍스트</td>
+                        <td><textarea name="text" cols="80" rows="5"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>읽는 사람</td>
+                        <td>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="speaker" value="jinho">남성
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="speaker" value="nara" checked>여성
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>피치</td>
+                        <td>
+                            <label for="pitch" class="form-label">← 높음 ~ 낮음 →</label>
+                            <input type="range" class="form-control-range" id="pitch" name="pitch" min="-5" max="5" step="0.5" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>속도</td>
+                        <td>
+                            <label for="speed" class="form-label">← 빠르게 ~ 느리게 →</label>
+                            <input type="range" class="form-control-range" id="speed" name="speed" min="-5" max="5" step="0.5" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>볼륨</td>
+                        <td>
+                            <label for="volume" class="form-label">← 작은 소리 ~ 큰 소리 →</label>
+                            <input type="range" class="form-control-range" id="volume" name="volume" min="-5" max="5" step="0.5" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>감정</td>
+                        <td>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="emotion" value="0" checked>보통
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="emotion" value="1">어두움
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="emotion" value="2">밝음
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="submit" class="btn btn-primary mr-2">실행</button>
+                            <button type="reset" class="btn btn-secondary">취소</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
+{% endblock %}

@@ -12,7 +12,7 @@ from my_util.weather import get_weather
 aclsf_bp = Blueprint('aclsf_bp', __name__)
 menu = {'ho':0, 'da':0, 'ml':1, 
         'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-        'cf':0, 'ac':1, 're':0, 'cu':0}
+        'cf':0, 'ac':1, 're':0, 'cu':0, 'nl':0}
 
 def get_weather_main():
     ''' weather = None
@@ -30,15 +30,15 @@ def get_weather_main():
 @aclsf_bp.before_app_first_request
 def before_app_first_request():
     #global imdb_count_lr, imdb_tfidf_lr
-    global naver_count_lr, naver_count_nb, naver_tfidf_lr, naver_tfidf_nb
+    #global naver_count_lr, naver_count_nb, naver_tfidf_lr, naver_tfidf_nb
     #global news_count_lr, news_tfidf_lr, news_tfidf_sv
-    print('============ Advanced Blueprint before_app_first_request() ==========')
+    #print('============ Advanced Blueprint before_app_first_request() ==========')
     ''' imdb_count_lr = joblib.load('static/model/imdb_count_lr.pkl')
     imdb_tfidf_lr = joblib.load('static/model/imdb_tfidf_lr.pkl') '''
-    naver_count_lr = joblib.load('static/model/naver_count_lr.pkl')
+    ''' naver_count_lr = joblib.load('static/model/naver_count_lr.pkl')
     naver_count_nb = joblib.load('static/model/naver_count_nb.pkl')
     naver_tfidf_lr = joblib.load('static/model/naver_tfidf_lr.pkl')
-    naver_tfidf_nb = joblib.load('static/model/naver_tfidf_nb.pkl')
+    naver_tfidf_nb = joblib.load('static/model/naver_tfidf_nb.pkl') '''
     ''' news_count_lr = joblib.load('static/model/news_count_lr.pkl')
     news_tfidf_lr = joblib.load('static/model/news_tfidf_lr.pkl')
     news_tfidf_sv = joblib.load('static/model/news_tfidf_sv.pkl') '''
@@ -158,10 +158,10 @@ def naver():
         temp_X = ' '.join([word for word in morphs if not word in stopwords]) # 불용어 제거
         test_data.append(temp_X)
 
-        ''' naver_count_lr = joblib.load('static/model/naver_count_lr.pkl')
+        naver_count_lr = joblib.load('static/model/naver_count_lr.pkl')
         naver_count_nb = joblib.load('static/model/naver_count_nb.pkl')
         naver_tfidf_lr = joblib.load('static/model/naver_tfidf_lr.pkl')
-        naver_tfidf_nb = joblib.load('static/model/naver_tfidf_nb.pkl') '''
+        naver_tfidf_nb = joblib.load('static/model/naver_tfidf_nb.pkl')
         pred_cl = '긍정' if naver_count_lr.predict(test_data)[0] else '부정'
         pred_cn = '긍정' if naver_count_nb.predict(test_data)[0] else '부정'
         pred_tl = '긍정' if naver_tfidf_lr.predict(test_data)[0] else '부정'

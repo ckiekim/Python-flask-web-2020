@@ -11,7 +11,7 @@ from my_util.weather import get_weather
 seoul_bp = Blueprint('seoul_bp', __name__)
 menu = {'ho':0, 'da':1, 'ml':0, 
         'se':1, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-        'cf':0, 'ac':0, 're':0, 'cu':0}
+        'cf':0, 'ac':0, 're':0, 'cu':0, 'nl':0}
 
 def get_weather_main():
     ''' weather = None

@@ -11,7 +11,7 @@ from my_util.sports_news import get_sports_news
 word_bp = Blueprint('word_bp', __name__)
 menu = {'ho':0, 'da':1, 'ml':0, 
         'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':1,
-        'cf':0, 'ac':0, 're':0, 'cu':0}
+        'cf':0, 'ac':0, 're':0, 'cu':0, 'nl':0}
 
 def get_weather_main():
     ''' weather = None

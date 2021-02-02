@@ -10,7 +10,7 @@ from my_util.weather import get_weather
 clsf_bp = Blueprint('clsf_bp', __name__)
 menu = {'ho':0, 'da':0, 'ml':1, 
             'se':0, 'co':0, 'cg':0, 'cr':0, 'wc':0,
-            'cf':1, 'ac':0, 're':0, 'cu':0}
+            'cf':1, 'ac':0, 're':0, 'cu':0, 'nl':0}
 
 def get_weather_main():
     ''' weather = None
