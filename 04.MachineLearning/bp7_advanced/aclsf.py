@@ -1,14 +1,11 @@
 from flask import Blueprint, render_template, request, session, g
-from flask import current_app
-from fbprophet import Prophet
-from datetime import datetime, timedelta
+from flask import current_app, redirect
 from sklearn.datasets import load_digits
 from konlpy.tag import Okt
-from tensorflow.keras.applications.vgg16 import VGG16, decode_predictions
 from tensorflow.keras.applications.resnet50 import ResNet50, decode_predictions
-from PIL import Image
-import cv2
+from PIL import Image, ImageDraw, ImageFont
 import os, re, joblib
+import urllib3, json, base64
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -230,4 +227,60 @@ def image():
         return render_template('advanced/image_res.html', menu=menu, weather=get_weather(),
                                name=label[1], prob=np.round(label[2]*100, 2),
                                filename=f_img.filename, mtime=mtime)      
-         
+
+@aclsf_bp.route('/detect', methods=['GET', 'POST'])
+def detect():
+    if request.method == 'GET':
+        return render_template('advanced/detect.html', menu=menu, weather=get_weather())
+    else:
+        f_img = request.files['image']
+        file_img = os.path.join(current_app.root_path, 'static/upload/') + f_img.filename
+        f_img.save(file_img)
+        _, image_type = os.path.splitext(f_img.filename)
+        image_type = 'jpg' if image_type == '.jfif' else image_type[1:]
+        current_app.logger.debug(f"{f_img.filename}, {image_type}")
+
+        # 공공 인공지능 Open API - 객체 검출
+        with open('static/keys/etri_ai_key.txt') as kfile:
+            eai_key = kfile.read(100)
+        with open(file_img, 'rb') as file:
+            image_contents = base64.b64encode(file.read()).decode('utf8')
+        openApiURL = "http://aiopen.etri.re.kr:8000/ObjectDetect"
+        request_json = {
+            "request_id": "reserved field",
+            "access_key": eai_key,
+            "argument": {
+                "file": image_contents,
+                "type": image_type
+            }
+        }
+        http = urllib3.PoolManager()
+        response = http.request(
+            "POST",
+            openApiURL,
+            headers={"Content-Type": "application/json; charset=UTF-8"},
+            body=json.dumps(request_json)
+        )
+        if response.status != 200:
+            return redirect(url_for('aclsf_bp.detect'))
+
+        result_json = json.loads(response.data)
+        obj_list = result_json['return_object']['data']
+        image = Image.open(file_img)
+        draw = ImageDraw.Draw(image)
+        object_list = []
+        for obj in obj_list:
+            name = obj['class']
+            x = int(obj['x'])
+            y = int(obj['y'])
+            w = int(obj['width'])
+            h = int(obj['height'])
+            draw.text((x+10,y+10), name, font=ImageFont.truetype('malgun.ttf', 20), fill=(255,0,0))
+            draw.rectangle(((x, y), (x+w, y+h)), outline=(255,0,0), width=2)
+            object_list.append(name)
+        object_img = os.path.join(current_app.root_path, 'static/img/object.'+image_type)
+        image.save(object_img)
+        mtime = int(os.stat(object_img).st_mtime)
+        return render_template('advanced/detect_res.html', menu=menu, weather=get_weather(),
+                               object_list=', '.join(obj for obj in object_list),
+                               filename='object.'+image_type, mtime=mtime) 
